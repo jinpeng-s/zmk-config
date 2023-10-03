@@ -13,7 +13,7 @@
 
 #define DEF 0
 
-#define MEDIA 2
+#define MEDIA 1
 #define NAV 2
 #define MOUSE 3
 
