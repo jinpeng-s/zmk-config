@@ -12,12 +12,16 @@
 #include "../zmk-nodefree-config/international_chars/german.dtsi"
 
 #define DEF 0
+
 #define UC 1
 #define NAV 2
 #define MOUSE 3
-#define SYS 4
+
+#define SYM 4
 #define NUM 5
 #define FN 6
+
+#define SYS 7
 
 #include "combos.dtsi"  // requires layer aliases
 #include "mouse.dtsi"
