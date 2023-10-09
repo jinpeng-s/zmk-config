@@ -13,10 +13,10 @@
 #endif
 
 #define DEF 0
-#define NUM 1
-#define NAV 2
-#define MOUSE 3
-#define SYM 4
+#define SYM 1
+#define NUM 2
+#define FUN 3
+#define NAV 4
 #define SYS 5
 
 #define GG LGUI
@@ -131,9 +131,9 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
 
 // smart-mouse, requires PR #1366
 ZMK_BEHAVIOR(smart_mouse, tri_state,
-    bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
+    bindings = <&tog FUN>, <&none>, <&tog FUN>;
     ignored-key-positions = <LT1 LT3 RT1 RT2 RT3 RM1 RM2 RM3 RH0 RH1>;
-    ignored-layers = <MOUSE>;
+    ignored-layers = <FUN>;
 )
 
 /* Custom behaviors */
@@ -234,7 +234,7 @@ ZMK_BEHAVIOR(lrthn, mod_morph,
     mods = <(MOD_LSFT)>;
 )
 
-ZMK_CONDITIONAL_LAYER(NUM MOUSE, SYS)
+ZMK_CONDITIONAL_LAYER(NUM FUN, SYS)
 
 ZMK_LAYER(base,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
@@ -244,7 +244,7 @@ ZMK_LAYER(base,
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
     XXX     &kp Z         &kp X         &kp C         &kp V         &kp B                       &kp N         &kp M         &comma_morph  &dot_morph    &qexcl          XXX
 //╰─────╯ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯ ╰─────╯
-                                                      &lt SYM TAB   &lt NUM SPACE XXX     XXX   &lt MOUSE RET &lt NAV BSPC
+                                                      &lt SYM TAB   &lt NUM SPACE XXX     XXX   &lt FUN RET   &lt NAV BSPC
 //                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
 )
 
@@ -276,7 +276,7 @@ ZMK_LAYER(num,
 
 // ---------- Right ----------
 
-ZMK_LAYER(mouse,
+ZMK_LAYER(fun,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
     XXX     ___           ___           ___           ___           ___                         ___           ___           ___           ___           ___             XXX
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
