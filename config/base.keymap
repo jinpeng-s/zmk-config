@@ -211,6 +211,12 @@ ZMK_BEHAVIOR(copy_cut, tap_dance,
 
 /* Keymap */
 
+// tap: lpar | shift + tap: rpar
+ZMK_BEHAVIOR(lrpar, mod_morph,
+    bindings = <&kp LPAR>, <&kp RPAR>;
+    mods = <(MOD_LSFT)>;
+)
+
 ZMK_CONDITIONAL_LAYER(NAV MOUSE, SYS)
 
 ZMK_LAYER(base,
@@ -267,7 +273,7 @@ ZMK_LAYER(mouse,
 
 ZMK_LAYER(sym,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
-    ___     ___           &kp GRAVE     &kp TILDE     &kp LPAR      &kp RPAR        &kp RBRC      &kp LBRC      &kp AMPS       &kp PIPE     ___             ___
+    ___     ___           &kp GRAVE     &kp TILDE     &kp lrpar     &kp RPAR        &kp RBRC      &kp LBRC      &kp AMPS       &kp PIPE     ___             ___
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
     ___     &kp BSLH      &kp AT        &kp HASH      &kp EQUAL     ___             ___           &kp PLUS      &kp MINUS      &kp STAR     &kp SLASH       ___
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
