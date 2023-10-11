@@ -234,6 +234,26 @@ ZMK_BEHAVIOR(lrthn, mod_morph,
     mods = <(MOD_LSFT)>;
 )
 
+ZMK_BEHAVIOR(gra_til, mod_morph,
+    bindings = <&kp GRAVE>, <&kp TILDE>;
+    mods = <(MOD_LSFT)>;
+)
+
+ZMK_BEHAVIOR(slh_bslh, mod_morph,
+    bindings = <&kp SLASH>, <&kp BSLH>;
+    mods = <(MOD_LSFT)>;
+)
+
+ZMK_BEHAVIOR(at_hash, mod_morph,
+    bindings = <&kp AT>, <&kp HASH>;
+    mods = <(MOD_LSFT)>;
+)
+
+ZMK_BEHAVIOR(prc_car, mod_morph,
+    bindings = <&kp PRCNT>, <&kp CARET>;
+    mods = <(MOD_LSFT)>;
+)
+
 ZMK_CONDITIONAL_LAYER(NUM FUN, SYS)
 
 ZMK_LAYER(base,
@@ -244,7 +264,7 @@ ZMK_LAYER(base,
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
     XXX     &kp Z         &kp X         &kp C         &kp V         &kp B                       &kp N         &kp M         &comma_morph  &dot_morph    &qexcl          XXX
 //╰─────╯ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯ ╰─────╯
-                                                      &lt SYM TAB   &lt NUM SPACE XXX     XXX   &lt FUN RET   &lt NAV BSPC
+                                                      &lt SYM SPACE &lt NUM TAB   XXX     XXX   &lt FUN BSPC  &lt NAV RET
 //                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
 )
 
@@ -252,11 +272,11 @@ ZMK_LAYER(base,
 
 ZMK_LAYER(sym,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
-    XXX     &kp GRAVE     &kp N7        &kp N8        &kp N9        &kp AT                      &kp PRCNT     &lrpar        &lrbkt         &lrbrc       &lrthn          XXX
+    XXX     &gra_til      &kp N7        &kp N8        &kp N9        &kp PLUS                    &kp DLLR      &lrpar        &lrbkt        &lrbrc        &lrthn          XXX
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &hml GG N0    &hml AA N4    &hml CC N5    &hml SS N6    &kp HASH                    &kp EQUAL     &hmr SS PLUS  &hmr CC MINUS  &hmr AA STAR &hmr GG SLASH   XXX
+    XXX     &hml GG N0    &hml AA N4    &hml CC N5    &hml SS N6    &kp MINUS                   &slh_bslh     &hmr SS AMPS  &hmr CC PIPE  &hmr AA STAR  ___             XXX
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &kp TILDE     &kp N1        &kp N2        &kp N3        &kp DLLR                    &kp AMPS      &kp PIPE      &kp UNDER      &kp CARET    &kp BSLH        XXX
+    XXX     &prc_car      &kp N1        &kp N2        &kp N3        &kp EQUAL                   &kp UNDER     &at_hash      ___           ___           ___             XXX
 //╰─────╯ ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ╰─────╯
                                                       ___           ___           XXX     XXX   ___           ___
 //                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
