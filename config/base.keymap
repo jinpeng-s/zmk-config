@@ -96,30 +96,38 @@ ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
 
 /* Keymap */
 
-// tap: comma | shift + tap: semicolon | ctrl + shift + tap: <
-ZMK_BEHAVIOR(comma_morph, mod_morph,
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-    bindings = <&kp COMMA>, <&comma_inner_morph>;
-)
-ZMK_BEHAVIOR(comma_inner_morph, mod_morph,
-    bindings = <&kp SEMICOLON>, <&kp LESS_THAN>;
-    mods = <(MOD_LCTL|MOD_RCTL)>;
+ZMK_BEHAVIOR(com_sem, mod_morph,
+    bindings = <&kp COMMA>, <&kp SEMICOLON>;
+    mods = <(MOD_LSFT)>;
 )
 
-// tap: dot | shift + tap: colon | ctrl + shift + tap: >
-ZMK_BEHAVIOR(dot_morph, mod_morph,
-    bindings = <&kp DOT>, <&dot_inner_morph>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(dot_inner_morph, mod_morph,
-    bindings = <&kp COLON>, <&kp GREATER_THAN>;
-    mods = <(MOD_LCTL|MOD_RCTL)>;
+ZMK_BEHAVIOR(dot_col, mod_morph,
+    bindings = <&kp DOT>, <&kp COLON>;
+    mods = <(MOD_LSFT)>;
 )
 
-// tap: qmark | shift + tap: excl
-ZMK_BEHAVIOR(qexcl, mod_morph,
+ZMK_BEHAVIOR(qma_exc, mod_morph,
     bindings = <&kp QMARK>, <&kp EXCL>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
+    mods = <(MOD_LSFT)>;
+)
+
+ZMK_LAYER(base,
+//╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
+    XXX     &kp Q         &kp W         &kp E         &kp R         &kp T                       &kp Y         &kp U         &kp I         &kp O         &kp P           XXX
+//├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
+    XXX     &hml GG A     &hml AA S     &hml CC D     &hml SS F     &kp G                       &kp H         &hmr SS J     &hmr CC K     &hmr AA L     &hmr GG FSLH    XXX
+//├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
+    XXX     &kp Z         &kp X         &kp C         &kp V         &kp B                       &kp N         &kp M         &com_sem      &dot_col      &qma_exc        XXX
+//╰─────╯ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯ ╰─────╯
+                                                      &lt SYM SPACE &lt APP TAB   XXX     XXX   &lt SYS BSPC  &lt NAV RET
+//                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
+)
+
+// ---------- Left ----------
+
+ZMK_BEHAVIOR(gra_til, mod_morph,
+    bindings = <&kp GRAVE>, <&kp TILDE>;
+    mods = <(MOD_LSFT)>;
 )
 
 ZMK_BEHAVIOR(l_par_brc, mod_morph,
@@ -142,24 +150,31 @@ ZMK_BEHAVIOR(r_bkt_thn, mod_morph,
     mods = <(MOD_LSFT)>;
 )
 
-ZMK_BEHAVIOR(gra_til, mod_morph,
-    bindings = <&kp GRAVE>, <&kp TILDE>;
+ZMK_BEHAVIOR(at_bslh, mod_morph,
+    bindings = <&kp AT>, <&kp BSLH>;
     mods = <(MOD_LSFT)>;
 )
 
-ZMK_BEHAVIOR(slh_bslh, mod_morph,
-    bindings = <&kp SLASH>, <&kp BSLH>;
+ZMK_BEHAVIOR(und_prc, mod_morph,
+    bindings = <&kp UNDER>, <&kp PRCNT>;
     mods = <(MOD_LSFT)>;
 )
 
-ZMK_BEHAVIOR(at_hash, mod_morph,
-    bindings = <&kp AT>, <&kp HASH>;
+ZMK_BEHAVIOR(sta_car, mod_morph,
+    bindings = <&kp STAR>, <&kp CARET>;
     mods = <(MOD_LSFT)>;
 )
 
-ZMK_BEHAVIOR(prc_car, mod_morph,
-    bindings = <&kp PRCNT>, <&kp CARET>;
-    mods = <(MOD_LSFT)>;
+ZMK_LAYER(sym,
+//╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
+    XXX     &gra_til      &kp N7        &kp N8        &kp N9        &kp EQUAL                   &l_par_brc    &r_par_brc    &l_bkt_thn    &r_bkt_thn    &kp APOS        XXX
+//├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
+    XXX     &hml GG N0    &hml AA N4    &hml CC N5    &hml SS N6    &kp MINUS                   &at_bslh      &hmr SS HASH  &hmr CC AMPS  &hmr AA PIPE  ___             XXX
+//├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
+    XXX     &kp DLLR      &kp N1        &kp N2        &kp N3        &kp PLUS                    &und_prc      &sta_car      ___           ___           ___             XXX
+//╰─────╯ ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ╰─────╯
+                                                      XXX           ___           XXX     XXX   ___           ___
+//                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
 )
 
 ZMK_BEHAVIOR(cs_area, mod_morph,
@@ -177,34 +192,6 @@ ZMK_BEHAVIOR(cs_fun, mod_morph,
     mods = <(MOD_LSFT)>;
 )
 
-ZMK_CONDITIONAL_LAYER(APP SYS, BLU)
-
-ZMK_LAYER(base,
-//╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
-    XXX     &kp Q         &kp W         &kp E         &kp R         &kp T                       &kp Y         &kp U         &kp I         &kp O         &kp P           XXX
-//├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &hml GG A     &hml AA S     &hml CC D     &hml SS F     &kp G                       &kp H         &hmr SS J     &hmr CC K     &hmr AA L     &hmr GG SQT     XXX
-//├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &kp Z         &kp X         &kp C         &kp V         &kp B                       &kp N         &kp M         &comma_morph  &dot_morph    &qexcl          XXX
-//╰─────╯ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯ ╰─────╯
-                                                      &lt SYM SPACE &lt APP TAB   XXX     XXX   &lt SYS BSPC  &lt NAV RET
-//                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
-)
-
-// ---------- Left ----------
-
-ZMK_LAYER(sym,
-//╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
-    XXX     &gra_til      &kp N7        &kp N8        &kp N9        &kp PLUS                    &kp DLLR      &l_par_brc    &r_par_brc    &l_bkt_thn   &r_bkt_thn       XXX
-//├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &hml GG N0    &hml AA N4    &hml CC N5    &hml SS N6    &kp MINUS                   &slh_bslh     &hmr SS AMPS  &hmr CC PIPE  &hmr AA STAR  ___             XXX
-//├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &prc_car      &kp N1        &kp N2        &kp N3        &kp EQUAL                   &kp UNDER     &at_hash      ___           ___           ___             XXX
-//╰─────╯ ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ╰─────╯
-                                                      XXX           ___           XXX     XXX   ___           ___
-//                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
-)
-
 ZMK_LAYER(app,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
     XXX     &kp BSPC      &cs_area      ___           ___           &kp LG(LS(SPACE))           ___           ___           ___           ___           ___             XXX
@@ -219,13 +206,11 @@ ZMK_LAYER(app,
 
 // ---------- Right ----------
 
-ZMK_UNICODE_PAIR(ru_ya, N0, N4, N2, F, N0, N4, N4, F) // Я
-
 ZMK_LAYER(sys,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
     XXX     &kp ESC       ___           ___           ___           ___                         ___           ___           ___           ___           ___             XXX
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &ru_ya        ___           ___           ___           ___                         ___           ___           ___           ___           ___             XXX
+    XXX     ___           ___           ___           ___           ___                         ___           ___           ___           ___           ___             XXX
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
     XXX     ___           ___           ___           ___           ___                         ___           ___           ___           ___           ___             XXX
 //╰─────╯ ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ╰─────╯
@@ -246,6 +231,8 @@ ZMK_LAYER(nav,
 )
 
 // ---------- Mix ----------
+
+ZMK_CONDITIONAL_LAYER(APP SYS, BLU)
 
 ZMK_LAYER(blu,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
