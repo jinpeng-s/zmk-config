@@ -1,15 +1,9 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#include "extra_keys.h"
 #include "../zmk-nodefree-config/helper.h"
 
-#if CONFIG_WIRELESS
-    #include <dt-bindings/zmk/bt.h>
-    #define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_CLR
-#else
-    #define _BT_SEL_KEYS_ &trans &trans &trans &trans &trans
-#endif
+#include "extra_keys.h"
 
 #define DEF 0
 #define SYM 1
@@ -18,83 +12,46 @@
 #define NAV 4
 #define BLU 5
 
-#define GG LGUI
-#define AA LALT
-#define CC LCTRL
-#define SS LSHFT
-
-#define XXX &none
+#define _X_ &none
 #define ___ &trans
-
-/* Global settings */
 
 #define QUICK_TAP_MS 175
 
-&sk {  // sticky-key config
-    release-after-ms = <900>;  // release after 0.6s
-    quick-release;             // no double capitalization when rolling keys
-};
-
-&sl {  // sticky-layer config
-    ignore-modifiers;          // allow chording sticky mods & layers
-};
-
-&lt {  // layer-tap config
+&lt {
     flavor = "balanced";
-    tapping-term-ms = <200>;
+    tapping-term-ms = <QUICK_TAP_MS>;
     quick-tap-ms = <QUICK_TAP_MS>;
 };
 
-#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
-    ZMK_BEHAVIOR(NAME, hold_tap, \
-        flavor = "balanced"; \
-        tapping-term-ms = <280>; \
-        quick-tap-ms = <QUICK_TAP_MS>; \
-        bindings = <HOLD>, <TAP>; \
-        hold-trigger-key-positions = <TRIGGER_POS>; \
-        hold-trigger-on-release; \
-    )
+&mt {
+    flavor = "tap-preferred";
+    tapping-term-ms = <QUICK_TAP_MS>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+};
 
-#define MASK_MODS(NAME, MODS, BINDING) \
-    ZMK_BEHAVIOR(NAME, mod_morph, \
-        bindings = <BINDING>, <BINDING>; \
-        mods = <MODS>; \
-    )
+// ---------- home row mode ----------
 
-#define MT_CORE \
-    flavor = "tap-preferred"; \
-    tapping-term-ms = <220>; \
-    quick-tap-ms = <220>; \
-    hold-trigger-key-positions = <0>;
-
-/* Homerow mods */
+// TODO: Why?
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumbs
 
+#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
+    ZMK_BEHAVIOR(NAME, hold_tap, \
+        flavor = "balanced"; \
+        tapping-term-ms = <QUICK_TAP_MS>; \
+        quick-tap-ms = <QUICK_TAP_MS>; \
+        require-prior-idle-ms = <150>; \
+        bindings = <HOLD>, <TAP>; \
+        hold-trigger-key-positions = <TRIGGER_POS>; \
+        hold-trigger-on-release; \
+    )
+
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
-/* Nav cluster */
-
-// long-tap action on hold, short-tap action on all interrupts
-&mt { MT_CORE };
-
-MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
-MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
-
-ZMK_BEHAVIOR(mt_home, hold_tap, bindings = <&masked_home>, <&kp>; MT_CORE)
-ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
-
-#define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
-#define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
-#define NAV_UP    &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
-#define NAV_DOWN  &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
-#define NAV_BSPC  &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
-#define NAV_DEL   &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
-
-/* Keymap */
+// ---------- base ----------
 
 ZMK_BEHAVIOR(com_sem, mod_morph,
     bindings = <&kp COMMA>, <&kp SEMICOLON>;
@@ -113,20 +70,25 @@ ZMK_BEHAVIOR(qma_exc, mod_morph,
 
 ZMK_LAYER(base,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
-    XXX     &kp Q         &kp W         &kp E         &kp R         &kp T                       &kp Y         &kp U         &kp I         &kp O         &kp P           XXX
+    _X_     &kp Q         &kp W         &kp E         &kp R         &kp T                       &kp Y         &kp U         &kp I         &kp O         &kp P           _X_
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &hml GG A     &hml AA S     &hml CC D     &hml SS F     &kp G                       &kp H         &hmr SS J     &hmr CC K     &hmr AA L     &hmr GG FSLH    XXX
+    _X_     &hml LGUI A   &hml LALT S   &hml LCTRL D  &hml LSHFT F  &kp G                       &kp H         &hmr LSHFT J  &hmr LCTRL K  &hmr LALT L   &hmr LGUI FSLH  _X_
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &kp Z         &kp X         &kp C         &kp V         &kp B                       &kp N         &kp M         &com_sem      &dot_col      &qma_exc        XXX
+    _X_     &kp Z         &kp X         &kp C         &kp V         &kp B                       &kp N         &kp M         &com_sem      &dot_col      &qma_exc        _X_
 //╰─────╯ ╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯ ╰─────╯
-                                                      &lt SYM SPACE &lt APP TAB   XXX     XXX   &lt SYS BSPC  &lt NAV RET
+                                                      &lt SYM SPACE &lt APP TAB   _X_     _X_   &lt SYS BSPC  &lt NAV RET
 //                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
 )
 
-// ---------- Left ----------
+// ---------- sym ----------
 
-ZMK_BEHAVIOR(gra_til, mod_morph,
-    bindings = <&kp GRAVE>, <&kp TILDE>;
+ZMK_BEHAVIOR(plus_equal, mod_morph,
+    bindings = <&kp PLUS>, <&kp EQUAL>;
+    mods = <(MOD_LSFT)>;
+)
+
+ZMK_BEHAVIOR(minus_under, mod_morph,
+    bindings = <&kp MINUS>, <&kp UNDER>;
     mods = <(MOD_LSFT)>;
 )
 
@@ -145,37 +107,34 @@ ZMK_BEHAVIOR(l_bkt_thn, mod_morph,
     mods = <(MOD_LSFT)>;
 )
 
+ZMK_BEHAVIOR(useless_apos, mod_morph,
+    bindings = <&kp APOS>, <&kp APOS>;
+    mods = <(MOD_LSFT)>;
+)
+
 ZMK_BEHAVIOR(r_bkt_thn, mod_morph,
     bindings = <&kp RBKT>, <&kp GT>;
     mods = <(MOD_LSFT)>;
 )
 
-ZMK_BEHAVIOR(at_bslh, mod_morph,
-    bindings = <&kp AT>, <&kp BSLH>;
-    mods = <(MOD_LSFT)>;
-)
-
-ZMK_BEHAVIOR(und_prc, mod_morph,
-    bindings = <&kp UNDER>, <&kp PRCNT>;
-    mods = <(MOD_LSFT)>;
-)
-
-ZMK_BEHAVIOR(sta_car, mod_morph,
-    bindings = <&kp STAR>, <&kp CARET>;
+ZMK_BEHAVIOR(grave_tilde, mod_morph,
+    bindings = <&kp GRAVE>, <&kp TILDE>;
     mods = <(MOD_LSFT)>;
 )
 
 ZMK_LAYER(sym,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
-    XXX     &gra_til      &kp N7        &kp N8        &kp N9        &kp EQUAL                   &l_par_brc    &r_par_brc    &l_bkt_thn    &r_bkt_thn    &kp APOS        XXX
+    _X_     &plus_equal   &kp N7        &kp N8        &kp N9        &kp CARET                   &kp DLLR      &l_par_brc    &r_par_brc    &l_bkt_thn    &r_bkt_thn      _X_
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &hml GG N0    &hml AA N4    &hml CC N5    &hml SS N6    &kp MINUS                   &at_bslh      &hmr SS HASH  &hmr CC AMPS  &hmr AA PIPE  ___             XXX
+    _X_     &hml LGUI N0  &hml LALT N4  &hml LCTRL N5 &hml LSHFT N6 &kp STAR                    &kp AT        &hmr LSHFT HASH &hmr LCTRL AMPS &hmr LALT PIPE &hmr LGUI BSLH _X_
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &kp DLLR      &kp N1        &kp N2        &kp N3        &kp PLUS                    &und_prc      &sta_car      ___           ___           ___             XXX
+    _X_     &minus_under  &kp N1        &kp N2        &kp N3        &kp PRCNT                   &grave_tilde  &useless_apos ___           ___           ___             _X_
 //╰─────╯ ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ╰─────╯
-                                                      XXX           ___           XXX     XXX   ___           ___
+                                                      _X_           ___           _X_     _X_   ___           ___
 //                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
 )
+
+// ---------- app ----------
 
 ZMK_BEHAVIOR(cs_area, mod_morph,
     bindings = <&kp LA(LS(N1))>, <&kp LA(LS(N6))>;
@@ -194,56 +153,108 @@ ZMK_BEHAVIOR(cs_fun, mod_morph,
 
 ZMK_LAYER(app,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
-    XXX     &kp BSPC      &cs_area      ___           ___           &kp LG(LS(SPACE))           ___           ___           ___           ___           ___             XXX
+    _X_     &kp BSPC      &cs_area      ___           ___           &kp LG(LS(SPACE))           ___           ___           ___           ___           ___             _X_
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &kp RET       &cs_win       ___           &kp LG(LS(F)) ___                         ___           ___           ___           ___           ___             XXX
+    _X_     &kp RET       &cs_win       ___           &kp LG(LS(F)) ___                         ___           ___           ___           ___           ___             _X_
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &kp ESC       &cs_fun       &kp LG(LS(C)) ___           ___                         ___           ___           ___           ___           ___             XXX
+    _X_     &kp ESC       &cs_fun       &kp LG(LS(C)) ___           ___                         ___           ___           ___           ___           ___             _X_
 //╰─────╯ ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ╰─────╯
-                                                      ___           XXX           XXX     XXX   ___           ___
+                                                      ___           _X_           _X_     _X_   ___           ___
 //                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
 )
 
-// ---------- Right ----------
+// ---------- sys ----------
 
 ZMK_LAYER(sys,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
-    XXX     &kp ESC       ___           ___           ___           ___                         ___           ___           ___           ___           ___             XXX
+    _X_     ___           ___           ___           ___           ___                         ___           ___           ___           ___           ___             _X_
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     ___           ___           ___           ___           ___                         ___           ___           ___           ___           ___             XXX
+    _X_     ___           ___           ___           ___           ___                         ___           ___           ___           ___           ___             _X_
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     ___           ___           ___           ___           ___                         ___           ___           ___           ___           ___             XXX
+    _X_     ___           ___           ___           ___           ___                         ___           ___           ___           ___           ___             _X_
 //╰─────╯ ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ╰─────╯
-                                                      ___           ___           XXX     XXX   XXX           ___
+                                                      ___           ___           _X_     _X_   _X_           ___
 //                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
 )
+
+// ---------- nav ----------
+
+/* Nav cluster */
+
+// TODO: USELESS?
+
+// long-tap action on hold, short-tap action on all interrupts
+
+#define MT_CORE \
+    flavor = "tap-preferred"; \
+    tapping-term-ms = <180>; \
+    quick-tap-ms = <180>; \
+    hold-trigger-key-positions = <0>;
+
+#define MASK_MODS(NAME, MODS, BINDING) \
+    ZMK_BEHAVIOR(NAME, mod_morph, \
+        bindings = <BINDING>, <BINDING>; \
+        mods = <MODS>; \
+    )
+
+MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
+MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
+
+ZMK_BEHAVIOR(mt_home, hold_tap, bindings = <&masked_home>, <&kp>; MT_CORE)
+ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
+
+#define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
+#define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
+#define NAV_UP    &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
+#define NAV_DOWN  &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
+#define NAV_BSPC  &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
+#define NAV_DEL   &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
 
 ZMK_LAYER(nav,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
-    XXX     ___           ___           &kp C_BRI_DN  &kp C_BRI_UP  ___                         &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       ___             XXX
+    _X_     ___           ___           &kp C_BRI_DN  &kp C_BRI_UP  ___                         &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       ___             _X_
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     &kp C_MUTE    &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT                  NAV_LEFT      NAV_DOWN      NAV_UP        NAV_RIGHT     ___             XXX
+    _X_     &kp C_MUTE    &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT                  NAV_LEFT      NAV_DOWN      NAV_UP        NAV_RIGHT     ___             _X_
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     ___           ___           ___           ___           ___                         ___           ___           ___           ___           ___             XXX
+    _X_     ___           ___           ___           ___           ___                         ___           ___           ___           ___           ___             _X_
 //╰─────╯ ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ╰─────╯
-                                                      ___           ___           XXX     XXX   ___           XXX
+                                                      ___           ___           _X_     _X_   ___           _X_
 //                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
 )
 
-// ---------- Mix ----------
+// ---------- blu ----------
 
-ZMK_CONDITIONAL_LAYER(APP SYS, BLU)
+#if CONFIG_WIRELESS
+    #include <dt-bindings/zmk/bt.h>
 
-ZMK_LAYER(blu,
-//╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
-    XXX                                _BT_SEL_KEYS_                                            ___           ___           ___           ___           ___             XXX
-//├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     ___           ___           ___           ___           &bootloader                 &bootloader   ___           ___           ___           ___             XXX
-//├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    XXX     ___           ___           ___           ___           &sys_reset                  &sys_reset    ___           ___           ___           ___             XXX
-//╰─────╯ ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ╰─────╯
-                                                      ___           ___           XXX     XXX   ___           ___
-//                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
-)
+    ZMK_CONDITIONAL_LAYER(APP SYS, BLU)
+
+    ZMK_LAYER(blu,
+    //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
+        _X_     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR                  &bt BT_CLR    &bt BT_SEL 4  &bt BT_SEL 5  &bt BT_SEL 6  &bt BT_SEL 7    _X_
+    //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
+        _X_     ___           ___           ___           ___           &bootloader                 &bootloader   ___           ___           ___           ___             _X_
+    //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
+        _X_     ___           ___           ___           ___           &sys_reset                  &sys_reset    ___           ___           ___           ___             _X_
+    //╰─────╯ ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ╰─────╯
+                                                          ___           ___           _X_     _X_   ___           ___
+    //                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
+    )
+
+#else
+
+    ZMK_LAYER(blu,
+    //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
+        _X_     &trans        &trans        &trans        &trans        &trans                      &trans        &trans        &trans        &trans        &trans          _X_
+    //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
+        _X_     ___           ___           ___           ___           &bootloader                 &bootloader   ___           ___           ___           ___             _X_
+    //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
+        _X_     ___           ___           ___           ___           &sys_reset                  &sys_reset    ___           ___           ___           ___             _X_
+    //╰─────╯ ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ╰─────╯
+                                                          ___           ___           _X_     _X_   ___           ___
+    //                                                  ╰─────────────┴─────────────┴─────╯ ╰─────┴─────────────┴─────────────╯
+    )
+
+#endif
 
 /* vim: set ft=c tw=174: */
