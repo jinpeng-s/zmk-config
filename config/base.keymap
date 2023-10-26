@@ -29,6 +29,11 @@
     quick-tap-ms = <QUICK_TAP_MS>;
 };
 
+&sk {
+    release-after-ms = <2000>;
+    quick-release;
+};
+
 // ---------- home row mode ----------
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4         LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
@@ -44,7 +49,7 @@
         bindings = <HOLD>, <TAP>; \
     )
 
-MAKE_HRM(hm, &kp, &kp)
+MAKE_HRM(hm, &sk, &kp)
 
 // ---------- base ----------
 
@@ -182,8 +187,8 @@ ZMK_LAYER(sys,
 
 #define MT_CORE \
     flavor = "tap-preferred"; \
-    tapping-term-ms = <180>; \
-    quick-tap-ms = <180>; \
+    tapping-term-ms = <QUICK_TAP_MS>; \
+    quick-tap-ms = <QUICK_TAP_MS>; \
     hold-trigger-key-positions = <0>;
 
 #define MASK_MODS(NAME, MODS, BINDING) \
@@ -196,14 +201,14 @@ MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
 MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 
 ZMK_BEHAVIOR(mt_home, hold_tap, bindings = <&masked_home>, <&kp>; MT_CORE)
-ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
+ZMK_BEHAVIOR(mt_end,  hold_tap, bindings = <&masked_end>,  <&kp>; MT_CORE)
 
-#define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
-#define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
-#define NAV_UP    &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
-#define NAV_DOWN  &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
-#define NAV_BSPC  &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
-#define NAV_DEL   &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
+#define NAV_LEFT  &mt_home 0        LEFT    // tap: left  | long-tap: beginning of line
+#define NAV_RIGHT &mt_end  0        RIGHT   // tap: right | long-tap: end       of line
+#define NAV_UP    &mt      LC(HOME) UP      // tap: up    | long-tap: beginning of document
+#define NAV_DOWN  &mt      LC(END)  DOWN    // tap: down  | long-tap: end       of document
+#define NAV_BSPC  &mt      LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
+#define NAV_DEL   &mt      LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
 
 ZMK_LAYER(nav,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
