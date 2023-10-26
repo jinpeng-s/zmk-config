@@ -15,18 +15,19 @@
 #define _X_ &none
 #define ___ &trans
 
-#define QUICK_TAP_MS 175
+#define TAP_MS 175
+#define SHORT_TAP_MS 100
 
 &lt {
     flavor = "balanced";
-    tapping-term-ms = <QUICK_TAP_MS>;
-    quick-tap-ms = <QUICK_TAP_MS>;
+    tapping-term-ms = <TAP_MS>;
+    quick-tap-ms = <TAP_MS>;
 };
 
 &mt {
     flavor = "tap-preferred";
-    tapping-term-ms = <QUICK_TAP_MS>;
-    quick-tap-ms = <QUICK_TAP_MS>;
+    tapping-term-ms = <TAP_MS>;
+    quick-tap-ms = <TAP_MS>;
 };
 
 &sk {
@@ -43,9 +44,9 @@
 #define MAKE_HRM(NAME, HOLD, TAP) \
     ZMK_BEHAVIOR(NAME, hold_tap, \
         flavor = "balanced"; \
-        tapping-term-ms = <QUICK_TAP_MS>; \
-        quick-tap-ms = <QUICK_TAP_MS>; \
-        require-prior-idle-ms = <QUICK_TAP_MS>; \
+        tapping-term-ms = <TAP_MS>; \
+        quick-tap-ms = <TAP_MS>; \
+        require-prior-idle-ms = <TAP_MS>; \
         bindings = <HOLD>, <TAP>; \
     )
 
@@ -179,42 +180,11 @@ ZMK_LAYER(sys,
 
 // ---------- nav ----------
 
-/* Nav cluster */
-
-// TODO: USELESS?
-
-// long-tap action on hold, short-tap action on all interrupts
-
-#define MT_CORE \
-    flavor = "tap-preferred"; \
-    tapping-term-ms = <QUICK_TAP_MS>; \
-    quick-tap-ms = <QUICK_TAP_MS>; \
-    hold-trigger-key-positions = <0>;
-
-#define MASK_MODS(NAME, MODS, BINDING) \
-    ZMK_BEHAVIOR(NAME, mod_morph, \
-        bindings = <BINDING>, <BINDING>; \
-        mods = <MODS>; \
-    )
-
-MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
-MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
-
-ZMK_BEHAVIOR(mt_home, hold_tap, bindings = <&masked_home>, <&kp>; MT_CORE)
-ZMK_BEHAVIOR(mt_end,  hold_tap, bindings = <&masked_end>,  <&kp>; MT_CORE)
-
-#define NAV_LEFT  &mt_home 0        LEFT    // tap: left  | long-tap: beginning of line
-#define NAV_RIGHT &mt_end  0        RIGHT   // tap: right | long-tap: end       of line
-#define NAV_UP    &mt      LC(HOME) UP      // tap: up    | long-tap: beginning of document
-#define NAV_DOWN  &mt      LC(END)  DOWN    // tap: down  | long-tap: end       of document
-#define NAV_BSPC  &mt      LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
-#define NAV_DEL   &mt      LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
-
 ZMK_LAYER(nav,
 //╭─────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮             ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────╮
-    _X_     ___           ___           &kp C_BRI_DN  &kp C_BRI_UP  ___                         &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       ___             _X_
+    _X_     ___           ___           &kp C_BRI_DN  &kp C_BRI_UP  ___                         ___           ___           ___           ___           ___             _X_
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
-    _X_     &kp C_MUTE    &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT                  NAV_LEFT      NAV_DOWN      NAV_UP        NAV_RIGHT     ___             _X_
+    _X_     &kp C_MUTE    &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_NEXT                  &mt HOME LEFT &mt PG_DN DOWN &mt PG_UP UP &mt END RIGHT ___             _X_
 //├─────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤             ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────┤
     _X_     ___           ___           ___           ___           ___                         ___           ___           ___           ___           ___             _X_
 //╰─────╯ ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────╮ ╭─────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯ ╰─────╯
