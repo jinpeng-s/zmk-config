@@ -14,58 +14,60 @@
 #define COMBO_TERM 30
 
 /* Vertical combos - left hand */
-ZMK_COMBO(caret , &kp CARET  , LT4 LM4 , ALL , COMBO_TERM)
-ZMK_COMBO(prcnt , &kp PRCNT  , LM4 LB4 , ALL , COMBO_TERM)
+ZMK_COMBO(caret , &kp CARET     , LT4 LM4 , ALL , COMBO_TERM)
+ZMK_COMBO(prcnt , &kp PRCNT     , LM4 LB4 , ALL , COMBO_TERM)
 
-ZMK_COMBO(plus  , &kp PLUS   , LT3 LM3 , ALL , COMBO_TERM)
-ZMK_COMBO(minus , &kp MINUS  , LM3 LB3 , ALL , COMBO_TERM)
+ZMK_COMBO(plus  , &kp PLUS      , LT3 LM3 , ALL , COMBO_TERM)
+ZMK_COMBO(minus , &kp MINUS     , LM3 LB3 , ALL , COMBO_TERM)
 
-ZMK_COMBO(star  , &kp STAR   , LT2 LM2 , ALL , COMBO_TERM)
-ZMK_COMBO(fslh  , &kp FSLH   , LM2 LB2 , ALL , COMBO_TERM)
+ZMK_COMBO(star  , &kp STAR      , LT2 LM2 , ALL , COMBO_TERM)
+ZMK_COMBO(fslh  , &kp FSLH      , LM2 LB2 , ALL , COMBO_TERM)
 
-ZMK_COMBO(equal , &kp EQUAL  , LT1 LM1 , ALL , COMBO_TERM)
-ZMK_COMBO(under , &kp UNDER  , LM1 LB1 , ALL , COMBO_TERM)
+ZMK_COMBO(equal , &kp EQUAL     , LT1 LM1 , ALL , COMBO_TERM)
+ZMK_COMBO(under , &kp UNDER     , LM1 LB1 , ALL , COMBO_TERM)
 
-ZMK_COMBO(amps  , &kp AMPS   , LT0 LM0 , ALL , COMBO_TERM)
-ZMK_COMBO(pipe  , &kp PIPE   , LM0 LB0 , ALL , COMBO_TERM)
+ZMK_COMBO(amps  , &kp AMPS      , LT0 LM0 , ALL , COMBO_TERM)
+ZMK_COMBO(pipe  , &kp PIPE      , LM0 LB0 , ALL , COMBO_TERM)
 
 /* Vertical combos - right hand */
-ZMK_COMBO(at    , &kp AT     , RT0 RM0 , ALL , COMBO_TERM)
-ZMK_COMBO(hash  , &kp HASH   , RM0 RB0 , ALL , COMBO_TERM)
+ZMK_COMBO(at    , &kp AT        , RT0 RM0 , ALL , COMBO_TERM)
+ZMK_COMBO(hash  , &kp HASH      , RM0 RB0 , ALL , COMBO_TERM)
 
-ZMK_COMBO(comma , &kp COMMA  , RT1 RM1 , ALL , COMBO_TERM)
-ZMK_COMBO(semi  , &kp SEMI   , RM1 RB1 , ALL , COMBO_TERM)
+ZMK_COMBO(comma , &kp COMMA     , RT1 RM1 , ALL , COMBO_TERM)
+ZMK_COMBO(semi  , &kp SEMI      , RM1 RB1 , ALL , COMBO_TERM)
 
-ZMK_COMBO(dot   , &kp DOT    , RT2 RM2 , ALL , COMBO_TERM)
-ZMK_COMBO(colon , &kp COLON  , RM2 RB2 , ALL , COMBO_TERM)
+ZMK_COMBO(dot   , &kp DOT       , RT2 RM2 , ALL , COMBO_TERM)
+ZMK_COMBO(colon , &kp COLON     , RM2 RB2 , ALL , COMBO_TERM)
 
-ZMK_COMBO(qmark , &kp QMARK  , RT3 RM3 , ALL , COMBO_TERM)
-ZMK_COMBO(excl  , &kp EXCL   , RM3 RB3 , ALL , COMBO_TERM)
+ZMK_COMBO(qmark , &kp QMARK     , RT3 RM3 , ALL , COMBO_TERM)
+ZMK_COMBO(excl  , &kp EXCL      , RM3 RB3 , ALL , COMBO_TERM)
 
-ZMK_COMBO(grave , &kp GRAVE  , RT4 RM4 , ALL , COMBO_TERM)
-ZMK_COMBO(tilde , &kp TILDE  , RM4 RB4 , ALL , COMBO_TERM)
+ZMK_COMBO(grave , &kp GRAVE     , RT4 RM4 , ALL , COMBO_TERM)
+ZMK_COMBO(tilde , &kp TILDE     , RM4 RB4 , ALL , COMBO_TERM)
 
 /* Horizontal combos - left hand */
-ZMK_COMBO(bspc  , &kp BSPC   , LT4 LT3 , ALL , COMBO_TERM)
-ZMK_COMBO(lpar  , &kp LPAR   , LT2 LT1 , ALL , COMBO_TERM)
-ZMK_COMBO(rpar  , &kp RPAR   , LT1 LT0 , ALL , COMBO_TERM)
+ZMK_COMBO(bspc  , &kp BSPC      , LT4 LT3 , ALL , COMBO_TERM)
+ZMK_COMBO(ret   , &kp RET       , LM4 LM3 , ALL , COMBO_TERM)
+ZMK_COMBO(lesc  , &kp ESC       , LB4 LB3 , ALL , COMBO_TERM)
 
-ZMK_COMBO(ret   , &kp RET    , LM4 LM3 , ALL , COMBO_TERM)
-ZMK_COMBO(lesc  , &kp ESC    , LM1 LM2 , ALL , COMBO_TERM)
+ZMK_COMBO(lpar  , &kp LPAR      , LT2 LT1 , ALL , COMBO_TERM)
+ZMK_COMBO(lt    , &kp LT        , LM2 LM1 , ALL , COMBO_TERM)
+ZMK_COMBO(apos  , &kp APOS      , LB2 LB1 , ALL , COMBO_TERM)
 
-ZMK_COMBO(lt    , &kp LT     , LB2 LB1 , ALL , COMBO_TERM)
-ZMK_COMBO(gt    , &kp GT     , LB1 LB0 , ALL , COMBO_TERM)
+ZMK_COMBO(rpar  , &kp RPAR      , LT1 LT0 , ALL , COMBO_TERM)
+ZMK_COMBO(gt    , &kp GT        , LM1 LM0 , ALL , COMBO_TERM)
+ZMK_COMBO(aposs , &kp LT(APOS)  , LB2 LB1 , ALL , COMBO_TERM)
 
 /* Horizontal combos - right hand */
-ZMK_COMBO(lbkt  , &kp LBKT   , RT0 RT1 , ALL , COMBO_TERM)
-ZMK_COMBO(rbkt  , &kp RBKT   , RT1 RT2 , ALL , COMBO_TERM)
-ZMK_COMBO(cw    , &caps_word , RT3 RT4 , ALL , COMBO_TERM)
+ZMK_COMBO(lbkt  , &kp LBKT      , RT0 RT1 , ALL , COMBO_TERM)
+ZMK_COMBO(lbrc  , &kp LBRC      , RM0 RM1 , ALL , COMBO_TERM)
 
-ZMK_COMBO(resc  , &kp ESC    , RM1 RM2 , ALL , COMBO_TERM)
-ZMK_COMBO(cl , &kp LC(SPACE) , RM3 RM4 , ALL , COMBO_TERM)
+ZMK_COMBO(rbkt  , &kp RBKT      , RT1 RT2 , ALL , COMBO_TERM)
+ZMK_COMBO(rbrc  , &kp RBRC      , RM1 RM2 , ALL , COMBO_TERM)
 
-ZMK_COMBO(lbrc  , &kp LBRC   , RB0 RB1 , ALL , COMBO_TERM)
-ZMK_COMBO(rbrc  , &kp RBRC   , RB1 RB2 , ALL , COMBO_TERM)
+ZMK_COMBO(cw    , &caps_word    , RT3 RT4 , ALL , COMBO_TERM)
+ZMK_COMBO(cl    , &kp LC(SPACE) , RM3 RM4 , ALL , COMBO_TERM)
+ZMK_COMBO(resc  , &kp ESC       , RB3 RB4 , ALL , COMBO_TERM)
 
 /*                     KEY POSITIONS
   ╭─────────────────────╮         ╭─────────────────────╮
