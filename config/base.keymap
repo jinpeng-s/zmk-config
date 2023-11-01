@@ -62,9 +62,13 @@ ZMK_BEHAVIOR(brc, mod_morph,
     mods = <(MOD_LSFT)>;
 )
 
-// q w e r t   - u i o -
-// a s d f g   - - k l -
-// z x c v b   - m - - -
+// Q W E R T   - U I O -
+// A S D F G   - - K L -
+// Z X C V B   - M - - -
+
+// - - E R T   - - I O -
+// - - D F -   - - K L -
+// - - - - -   - - - - -
 
 // Q W D F K   J U R L ;
 // A S E T G   Y N I O H
