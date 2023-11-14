@@ -13,52 +13,6 @@
 #undef COMBO_TERM
 #define COMBO_TERM 30
 
-#define TAP_MS 175
-
-ZMK_BEHAVIOR(to_rus, macro,
-    bindings = <&kp LA(LC(LS(U))) &tog RUS>;
-)
-
-ZMK_BEHAVIOR(to_gre, macro,
-    bindings = <&kp LA(LC(LS(U))) &tog GRE>;
-)
-
-/ {
-    behaviors {
-        to_rus_or_gre: to_rus_or_gre {
-            compatible = "zmk,behavior-tap-dance";
-            label = "to_rus_or_gre";
-            #binding-cells = <0>;
-            tapping-term-ms = <TAP_MS>;
-            bindings = <&to_rus>, <&to_gre>;
-        };
-    };
-};
-
-ZMK_BEHAVIOR(rus_to_eng, macro,
-    bindings = <&kp LA(LC(LS(E))) &tog RUS>;
-)
-
-ZMK_BEHAVIOR(rus_to_ch, macro,
-    bindings = <&kp LA(LC(LS(C))) &tog RUS>;
-)
-
-ZMK_BEHAVIOR(from_rus, macro,
-    bindings = <&mt &gre_to_ch &gre_to_eng>;
-)
-
-ZMK_BEHAVIOR(gre_to_eng, macro,
-    bindings = <&kp LA(LC(LS(E))) &tog GRE>;
-)
-
-ZMK_BEHAVIOR(gre_to_ch, macro,
-    bindings = <&kp LA(LC(LS(C))) &tog GRE>;
-)
-
-ZMK_BEHAVIOR(from_gre, macro,
-    bindings = <&mt &gre_to_ch &gre_to_eng>;
-)
-
 /* Vertical combos - left hand */
 ZMK_COMBO(amps  , &kp AMPS      , LT4 LM4 , DEF RUS GRE SYM , COMBO_TERM)
 ZMK_COMBO(pipe  , &kp PIPE      , LM4 LB4 , DEF RUS GRE SYM , COMBO_TERM)
@@ -103,18 +57,11 @@ ZMK_COMBO(rpar  , &kp RPAR      , LB2 LB1 , DEF RUS GRE SYM , COMBO_TERM)
 
 /* Horizontal combon - right hand */                
 
-ZMK_COMBO(ru_e  , &ru_e         , RT0 RT1 ,     RUS         , COMBO_TERM)
-ZMK_COMBO(ru_kh , &ru_kh        , RB0 RB1 ,     RUS         , COMBO_TERM)
-
 ZMK_COMBO(lbkt  , &kp LBKT      , RT1 RT2 , DEF RUS GRE SYM , COMBO_TERM)
 ZMK_COMBO(lbrc  , &kp LBRC      , RB1 RB2 , DEF RUS GRE SYM , COMBO_TERM)
 
 ZMK_COMBO(rbkt  , &kp RBKT      , RT2 RT3 , DEF RUS GRE SYM , COMBO_TERM)
 ZMK_COMBO(rbrc  , &kp RBRC      , RB2 RB3 , DEF RUS GRE SYM , COMBO_TERM)
-
-ZMK_COMBO(cl    , &to_rus_or_gre, RB3 RT4 , DEF         SYM , COMBO_TERM)
-ZMK_COMBO(rus   , &from_rus     , RB3 RT4 ,     RUS         , COMBO_TERM)
-ZMK_COMBO(gre   , &from_gre     , RB3 RT4 ,         GRE     , COMBO_TERM)
 
 /*                     KEY POSITIONS
   ╭─────────────────────╮         ╭─────────────────────╮
