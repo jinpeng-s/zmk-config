@@ -46,6 +46,19 @@ ZMK_COMBO(at    , &kp AT        , RT4 RM4 , DEF RUS GRE SYM , COMBO_TERM)
 ZMK_COMBO(hash  , &kp HASH      , RM4 RB4 , DEF RUS GRE SYM , COMBO_TERM)
 
 /* Horizontal combos - left hand */                 
+
+ZMK_BEHAVIOR(gre_to_ch, macro,
+    bindings = <&kp LA(LC(LS(C))) &tog GRE>;
+)
+
+ZMK_BEHAVIOR(to_gre, macro,
+    bindings = <&kp LA(LC(LS(U))) &tog GRE>;
+)
+
+ZMK_BEHAVIOR(gre_to_eng, macro,
+    bindings = <&kp LA(LC(LS(E))) &tog GRE>;
+)
+
 ZMK_COMBO(bspc  , &mt ESC BSPC       , LT4 LT3 , DEF RUS GRE SYM , COMBO_TERM)
 ZMK_COMBO(ret   , &mt &caps_word RET , LB4 LB3 , DEF RUS GRE SYM , COMBO_TERM)
 
@@ -55,7 +68,27 @@ ZMK_COMBO(lpar  , &kp LPAR      , LB3 LB2 , DEF RUS GRE SYM , COMBO_TERM)
 ZMK_COMBO(aposs , &kp LS(APOS)  , LT2 LT1 , DEF RUS GRE SYM , COMBO_TERM)
 ZMK_COMBO(rpar  , &kp RPAR      , LB2 LB1 , DEF RUS GRE SYM , COMBO_TERM)
 
+ZMK_COMBO(g_c   , &gre_to_ch    , LT0 LT1 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(gre   , &to_gre       , LM0 LM1 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(g_e   , &gre_to_eng   , LB0 LB1 , DEF RUS GRE SYM , COMBO_TERM)
+
 /* Horizontal combon - right hand */                
+
+ZMK_BEHAVIOR(rus_to_ch, macro,
+    bindings = <&kp LA(LC(LS(C))) &tog RUS>;
+)
+
+ZMK_BEHAVIOR(to_rus, macro,
+    bindings = <&kp LA(LC(LS(U))) &tog RUS>;
+)
+
+ZMK_BEHAVIOR(rus_to_eng, macro,
+    bindings = <&kp LA(LC(LS(E))) &tog RUS>;
+)
+
+ZMK_COMBO(r_c   , &rus_to_ch    , RT0 RT1 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(rus   , &to_rus       , RM0 RM1 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(r_e   , &rus_to_eng   , RB0 RB1 , DEF RUS GRE SYM , COMBO_TERM)
 
 ZMK_COMBO(lbkt  , &kp LBKT      , RT1 RT2 , DEF RUS GRE SYM , COMBO_TERM)
 ZMK_COMBO(lbrc  , &kp LBRC      , RB1 RB2 , DEF RUS GRE SYM , COMBO_TERM)
