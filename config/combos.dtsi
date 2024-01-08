@@ -14,55 +14,53 @@
 #define COMBO_TERM 30
 
 /* Vertical combos - left hand */
-ZMK_COMBO(amps  , &kp AMPS           , LT4 LM4 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(pipe  , &kp PIPE           , LM4 LB4 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(amps  , &kp AMPS           , LT4 LM4 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(pipe  , &kp PIPE           , LM4 LB4 , DEF SYM RUS , COMBO_TERM)
 
-ZMK_COMBO(plus  , &kp PLUS           , LT3 LM3 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(minus , &kp MINUS          , LM3 LB3 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(plus  , &kp PLUS           , LT3 LM3 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(minus , &kp MINUS          , LM3 LB3 , DEF SYM RUS , COMBO_TERM)
 
-ZMK_COMBO(star  , &kp STAR           , LT2 LM2 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(fslh  , &kp FSLH           , LM2 LB2 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(star  , &kp STAR           , LT2 LM2 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(fslh  , &kp FSLH           , LM2 LB2 , DEF SYM RUS , COMBO_TERM)
 
-ZMK_COMBO(under , &kp UNDER          , LT1 LM1 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(equal , &kp EQUAL          , LM1 LB1 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(under , &kp UNDER          , LT1 LM1 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(equal , &kp EQUAL          , LM1 LB1 , DEF SYM RUS , COMBO_TERM)
 
-ZMK_COMBO(prcnt , &kp PRCNT          , LT0 LM0 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(caret , &kp CARET          , LM0 LB0 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(prcnt , &kp PRCNT          , LT0 LM0 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(caret , &kp CARET          , LM0 LB0 , DEF SYM RUS , COMBO_TERM)
 
 /* Vertical combos - right hand */
-ZMK_COMBO(tilde , &kp TILDE          , RT0 RM0 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(grave , &kp GRAVE          , RM0 RB0 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(tilde , &kp TILDE          , RT0 RM0 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(grave , &kp GRAVE          , RM0 RB0 , DEF SYM RUS , COMBO_TERM)
 
-ZMK_COMBO(excl  , &kp EXCL           , RT1 RM1 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(qmark , &kp QMARK          , RM1 RB1 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(excl  , &kp EXCL           , RT1 RM1 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(qmark , &kp QMARK          , RM1 RB1 , DEF SYM RUS , COMBO_TERM)
 
-ZMK_COMBO(comma , &kp COMMA          , RT2 RM2 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(semi  , &kp SEMI           , RM2 RB2 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(comma , &kp COMMA          , RT2 RM2 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(semi  , &kp SEMI           , RM2 RB2 , DEF SYM RUS , COMBO_TERM)
 
-ZMK_COMBO(dot   , &kp DOT            , RT3 RM3 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(colon , &kp COLON          , RM3 RB3 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(dot   , &kp DOT            , RT3 RM3 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(colon , &kp COLON          , RM3 RB3 , DEF SYM RUS , COMBO_TERM)
 
-ZMK_COMBO(at    , &kp AT             , RT4 RM4 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(hash  , &kp HASH           , RM4 RB4 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(at    , &kp AT             , RT4 RM4 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(hash  , &kp HASH           , RM4 RB4 , DEF SYM RUS , COMBO_TERM)
 
 /* Horizontal combos - left hand */
+ZMK_COMBO(bspc  , &mt ESC BSPC       , LT4 LT3 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(ret   , &mt &caps_word RET , LB4 LB3 , DEF SYM RUS , COMBO_TERM)
 
-ZMK_COMBO(bspc  , &mt ESC BSPC       , LT4 LT3 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(ret   , &mt &caps_word RET , LB4 LB3 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(apos  , &kp APOS           , LT3 LT2 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(lpar  , &kp LPAR           , LB3 LB2 , DEF SYM RUS , COMBO_TERM)
 
-ZMK_COMBO(apos  , &kp APOS           , LT3 LT2 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(lpar  , &kp LPAR           , LB3 LB2 , DEF RUS GRE SYM , COMBO_TERM)
-
-ZMK_COMBO(aposs , &kp LS(APOS)       , LT2 LT1 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(rpar  , &kp RPAR           , LB2 LB1 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(aposs , &kp LS(APOS)       , LT2 LT1 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(rpar  , &kp RPAR           , LB2 LB1 , DEF SYM RUS , COMBO_TERM)
 
 /* Horizontal combon - right hand */
+ZMK_COMBO(lbkt  , &kp LBKT           , RT1 RT2 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(lbrc  , &kp LBRC           , RB1 RB2 , DEF SYM RUS , COMBO_TERM)
 
-ZMK_COMBO(lbkt  , &kp LBKT           , RT1 RT2 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(lbrc  , &kp LBRC           , RB1 RB2 , DEF RUS GRE SYM , COMBO_TERM)
-
-ZMK_COMBO(rbkt  , &kp RBKT           , RT2 RT3 , DEF RUS GRE SYM , COMBO_TERM)
-ZMK_COMBO(rbrc  , &kp RBRC           , RB2 RB3 , DEF RUS GRE SYM , COMBO_TERM)
+ZMK_COMBO(rbkt  , &kp RBKT           , RT2 RT3 , DEF SYM RUS , COMBO_TERM)
+ZMK_COMBO(rbrc  , &kp RBRC           , RB2 RB3 , DEF SYM RUS , COMBO_TERM)
 
 /*                     KEY POSITIONS
   ╭─────────────────────╮         ╭─────────────────────╮
