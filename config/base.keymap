@@ -56,7 +56,7 @@ ZMK_BEHAVIOR(to_rus, macro,
 )
 
 ZMK_BEHAVIOR(special_leader, tap_dance,
-    bindings = <&lt APP LC(W)>, <&kp LA(W)>;
+    bindings = <&lt APP LA(V)>, <&kp LA(Z)>;
 )
 
 ZMK_LAYER(base,
