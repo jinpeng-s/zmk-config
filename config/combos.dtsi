@@ -46,8 +46,8 @@ ZMK_COMBO(at    , &kp AT             , RT4 RM4 , DEF SYM RUS , COMBO_TERM)
 ZMK_COMBO(hash  , &kp HASH           , RM4 RB4 , DEF SYM RUS , COMBO_TERM)
 
 /* Horizontal combos - left hand */
-ZMK_COMBO(bspc  , &mt 0 BSPC         , LT4 LT3 , DEF SYM RUS , COMBO_TERM)
-ZMK_COMBO(ret   , &mt 0 RET          , LB4 LB3 , DEF SYM RUS , COMBO_TERM)
+// ZMK_COMBO(bspc  , &mt 0 BSPC         , LT4 LT3 , DEF SYM RUS , COMBO_TERM)
+// ZMK_COMBO(ret   , &mt 0 RET          , LB4 LB3 , DEF SYM RUS , COMBO_TERM)
 
 ZMK_COMBO(apos  , &kp APOS           , LT3 LT2 , DEF SYM RUS , COMBO_TERM)
 ZMK_COMBO(lpar  , &kp LPAR           , LB3 LB2 , DEF SYM RUS , COMBO_TERM)
