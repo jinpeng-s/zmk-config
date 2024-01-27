@@ -49,7 +49,7 @@ ZMK_COMBO(dot   , &kp DOT            , RT3 RM3 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(colon , &kp COLON          , RM3 RB3 , PRI SEC RUS , COMBO_TERM)
 
 ZMK_COMBO(bslh  , &kp BSLH           , RT4 RM4 , PRI SEC RUS , COMBO_TERM)
-ZMK_COMBO(___   , &kp 0              , RM4 RB4 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(grave , &kp GRAVE          , RM4 RB4 , PRI SEC RUS , COMBO_TERM)
 
 //////////////////////////////
 // Horizontal combos
@@ -84,7 +84,7 @@ ZMK_COMBO(___   , &kp 0              , RM1 RM2 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , RM2 RM3 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , RM3 RM4 , PRI SEC RUS , COMBO_TERM)
 
-ZMK_COMBO(grave , &kp GRAVE          , RB0 RB1 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(___   , &kp 0              , RB0 RB1 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(lbrc  , &kp LBRC           , RB1 RB2 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(rbrc  , &kp RBRC           , RB2 RB3 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , RB3 RB4 , PRI SEC RUS , COMBO_TERM)
