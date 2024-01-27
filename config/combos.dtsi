@@ -22,8 +22,8 @@
 ZMK_COMBO(amps  , &kp AMPS           , LT4 LM4 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(pipe  , &kp PIPE           , LM4 LB4 , PRI SEC RUS , COMBO_TERM)
 
-ZMK_COMBO(plus  , &kp PLUS           , LT3 LM3 , PRI SEC RUS , COMBO_TERM)
-ZMK_COMBO(minus , &kp MINUS          , LM3 LB3 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(minus , &kp MINUS          , LT3 LM3 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(plus  , &kp PLUS           , LM3 LB3 , PRI SEC RUS , COMBO_TERM)
 
 ZMK_COMBO(star  , &kp STAR           , LT2 LM2 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(fslh  , &kp FSLH           , LM2 LB2 , PRI SEC RUS , COMBO_TERM)
