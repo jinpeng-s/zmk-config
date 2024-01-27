@@ -44,3 +44,5 @@
 #define U_WH_D &msc SCROLL_DOWN
 #define U_WH_L &msc SCROLL_LEFT
 #define U_WH_R &msc SCROLL_RIGHT
+
+#define uuu &mkp LCLK
