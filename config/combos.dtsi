@@ -19,8 +19,8 @@
 
 // Vertical combos - left hand
 
-ZMK_COMBO(amps  , &kp AMPS           , LT4 LM4 , PRI SEC RUS , COMBO_TERM)
-ZMK_COMBO(pipe  , &kp PIPE           , LM4 LB4 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(prcnt , &kp PRCNT          , LT4 LM4 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(caret , &kp CARET          , LM4 LB4 , PRI SEC RUS , COMBO_TERM)
 
 ZMK_COMBO(minus , &kp MINUS          , LT3 LM3 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(plus  , &kp PLUS           , LM3 LB3 , PRI SEC RUS , COMBO_TERM)
@@ -31,8 +31,8 @@ ZMK_COMBO(fslh  , &kp FSLH           , LM2 LB2 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(under , &kp UNDER          , LT1 LM1 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(equal , &kp EQUAL          , LM1 LB1 , PRI SEC RUS , COMBO_TERM)
 
-ZMK_COMBO(prcnt , &kp PRCNT          , LT0 LM0 , PRI SEC RUS , COMBO_TERM)
-ZMK_COMBO(caret , &kp CARET          , LM0 LB0 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(amps  , &kp AMPS           , LT0 LM0 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(pipe  , &kp PIPE           , LM0 LB0 , PRI SEC RUS , COMBO_TERM)
 
 // Vertical combos - right hand
 
