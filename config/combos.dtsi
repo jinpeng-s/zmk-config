@@ -67,14 +67,14 @@ ZMK_COMBO(___   , &kp 0              , LM3 LM2 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , LM2 LM1 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , LM1 LM0 , PRI SEC RUS , COMBO_TERM)
 
-ZMK_COMBO(aposs , &kp LS(APOS)       , LB4 LB3 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(___   , &kp 0              , LB4 LB3 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(lpar  , &kp LPAR           , LB3 LB2 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(rpar  , &kp RPAR           , LB2 LB1 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(bslh  , &kp BSLH           , LB1 LB0 , PRI SEC RUS , COMBO_TERM)
 
 // Horizontal combos - right hand
 
-ZMK_COMBO(___   , &kp 0              , RT0 RT1 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(aposs , &kp LS(APOS)       , RT0 RT1 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(lbkt  , &kp LBKT           , RT1 RT2 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(rbkt  , &kp RBKT           , RT2 RT3 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , RT3 RT4 , PRI SEC RUS , COMBO_TERM)
