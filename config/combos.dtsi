@@ -75,8 +75,8 @@ ZMK_COMBO(bslh  , &kp BSLH           , LB1 LB0 , PRI SEC RUS , COMBO_TERM)
 // Horizontal combos - right hand
 
 ZMK_COMBO(___   , &kp 0              , RT0 RT1 , PRI SEC RUS , COMBO_TERM)
-ZMK_COMBO(lbrc  , &kp LBRC           , RT1 RT2 , PRI SEC RUS , COMBO_TERM)
-ZMK_COMBO(rbrc  , &kp RBRC           , RT2 RT3 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(lbkt  , &kp LBKT           , RT1 RT2 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(rbkt  , &kp RBKT           , RT2 RT3 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , RT3 RT4 , PRI SEC RUS , COMBO_TERM)
 
 ZMK_COMBO(___   , &kp 0              , RM0 RM1 , PRI SEC RUS , COMBO_TERM)
@@ -85,8 +85,8 @@ ZMK_COMBO(___   , &kp 0              , RM2 RM3 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , RM3 RM4 , PRI SEC RUS , COMBO_TERM)
 
 ZMK_COMBO(___   , &kp 0              , RB0 RB1 , PRI SEC RUS , COMBO_TERM)
-ZMK_COMBO(lbkt  , &kp LBKT           , RB1 RB2 , PRI SEC RUS , COMBO_TERM)
-ZMK_COMBO(rbkt  , &kp RBKT           , RB2 RB3 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(lbrc  , &kp LBRC           , RB1 RB2 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(rbrc  , &kp RBRC           , RB2 RB3 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , RB3 RB4 , PRI SEC RUS , COMBO_TERM)
 
 /*                     KEY POSITIONS
