@@ -33,7 +33,7 @@
 #define _X_ &none
 #define ___ &trans
 
-#define TAP_MS 175
+#define TAP_MS 200
 
 &lt {
     flavor = "balanced";
