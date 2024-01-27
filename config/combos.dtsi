@@ -19,7 +19,7 @@
 
 // Vertical combos - left hand
 
-ZMK_COMBO(prcnt , &kp PRCNT          , LT4 LM4 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(grave , &kp GRAVE          , LT4 LM4 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(equal , &kp EQUAL          , LM4 LB4 , PRI SEC RUS , COMBO_TERM)
 
 ZMK_COMBO(minus , &kp MINUS          , LT3 LM3 , PRI SEC RUS , COMBO_TERM)
@@ -49,7 +49,7 @@ ZMK_COMBO(dot   , &kp DOT            , RT3 RM3 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(colon , &kp COLON          , RM3 RB3 , PRI SEC RUS , COMBO_TERM)
 
 ZMK_COMBO(bslh  , &kp BSLH           , RT4 RM4 , PRI SEC RUS , COMBO_TERM)
-ZMK_COMBO(grave , &kp GRAVE          , RM4 RB4 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(prcnt , &kp PRCNT          , RM4 RB4 , PRI SEC RUS , COMBO_TERM)
 
 //////////////////////////////
 // Horizontal combos
