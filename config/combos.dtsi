@@ -36,8 +36,8 @@ ZMK_COMBO(caret , &kp CARET          , LM0 LB0 , PRI SEC RUS , COMBO_TERM)
 
 // Vertical combos - right hand
 
-ZMK_COMBO(tilde , &kp TILDE          , RT0 RM0 , PRI SEC RUS , COMBO_TERM)
-ZMK_COMBO(grave , &kp GRAVE          , RM0 RB0 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(___   , &kp 0              , RT0 RM0 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(___   , &kp 0              , RM0 RB0 , PRI SEC RUS , COMBO_TERM)
 
 ZMK_COMBO(excl  , &kp EXCL           , RT1 RM1 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(qmark , &kp QMARK          , RM1 RB1 , PRI SEC RUS , COMBO_TERM)
@@ -74,17 +74,17 @@ ZMK_COMBO(bslh  , &kp BSLH           , LB1 LB0 , PRI SEC RUS , COMBO_TERM)
 
 // Horizontal combos - right hand
 
-ZMK_COMBO(aposs , &kp LS(APOS)       , RT0 RT1 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(tilde , &kp TILDE          , RT0 RT1 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(lbkt  , &kp LBKT           , RT1 RT2 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(rbkt  , &kp RBKT           , RT2 RT3 , PRI SEC RUS , COMBO_TERM)
-ZMK_COMBO(___   , &kp 0              , RT3 RT4 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(aposs , &kp LS(APOS)       , RT3 RT4 , PRI SEC RUS , COMBO_TERM)
 
 ZMK_COMBO(___   , &kp 0              , RM0 RM1 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , RM1 RM2 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , RM2 RM3 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , RM3 RM4 , PRI SEC RUS , COMBO_TERM)
 
-ZMK_COMBO(___   , &kp 0              , RB0 RB1 , PRI SEC RUS , COMBO_TERM)
+ZMK_COMBO(grave , &kp GRAVE          , RB0 RB1 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(lbrc  , &kp LBRC           , RB1 RB2 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(rbrc  , &kp RBRC           , RB2 RB3 , PRI SEC RUS , COMBO_TERM)
 ZMK_COMBO(___   , &kp 0              , RB3 RB4 , PRI SEC RUS , COMBO_TERM)
