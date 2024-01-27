@@ -28,6 +28,7 @@
 #define SYS 6
 
 #include "combos.dtsi"
+#include "mouse.dtsi"
 #include "extra_keys.h"
 
 #define _X_ &none
