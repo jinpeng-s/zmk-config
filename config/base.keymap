@@ -34,6 +34,7 @@
 #define ___ &trans
 
 #define TAP_MS 200
+#define SHORT_TAP_MS 125
 
 &lt {
     flavor = "balanced";
@@ -242,18 +243,22 @@ ZMK_LAYER(SYS,
 //////////////////////////////
 
 ZMK_BEHAVIOR(smart_left, tap_dance,
+    tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <&kp LEFT>, <&kp HOME>;
 )
 
 ZMK_BEHAVIOR(smart_down, tap_dance,
+    tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <&kp DOWN>,  <&kp PG_DN>;
 )
 
 ZMK_BEHAVIOR(smart_up, tap_dance,
+    tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <&kp UP>, <&kp PG_UP>;
 )
 
 ZMK_BEHAVIOR(smart_right, tap_dance,
+    tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <&kp RIGHT>, <&kp END>;
 )
 
