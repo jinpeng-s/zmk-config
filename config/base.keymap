@@ -34,7 +34,7 @@
 #define ___ &trans
 
 #define TAP_MS 200
-#define SHORT_TAP_MS 145
+#define SHORT_TAP_MS 150
 
 &lt {
     flavor = "balanced";
