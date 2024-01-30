@@ -185,34 +185,30 @@ ZMK_LAYER(APP,
 // ---------- SYS ----------
 //////////////////////////////
 
-#define COPY  & kp LG(C)
-#define CUT   & kp LG(X)
+#define _COPY &kp LG(C)
+#define _CUT &kp LG(X)
 ZMK_BEHAVIOR(copy_cut, tap_dance,
-    bindings = <COPY>, <CUT>;
+    bindings = <_COPY>, <_CUT>;
 )
 
-#define PASTE & kp LG(V)
+#define _PASTE &kp LG(V)
 
-#define UNDO  & kp LG(Z)
-#define REDO  & kp LG(LS(Z))
+#define _UNDO &kp LG(Z)
+#define _REDO &kp LG(LS(Z))
 ZMK_BEHAVIOR(undo_redo, tap_dance,
-    bindings = <UNDO>, <REDO>;
+    bindings = <_UNDO>, <_REDO>;
 )
 
-#define SEARCH & kp LG(SPACE)
-#define SWITCH & kp LG(TAB)
-
-// #define SAVE  & kp LG(S)
-// #define CLOSE & kp LG(W)
-// #define QUIT  & kp LG(Q)
+#define _SEARCH &kp LG(SPACE)
+#define _SWITCH &kp LG(TAB)
 
 ZMK_LAYER(SYS,
 //╭───╮ ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮             ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮ ╭───╮
-   _X_   ___               SEARCH            SWITCH            ___               ___                         ___               ___               &kp C_BRI_DN      &kp C_BRI_UP      &kp LG(LC(Q))   _X_
+   _X_   ___               _SEARCH           _SWITCH           ___               ___                         ___               ___               &kp C_BRI_DN      &kp C_BRI_UP      &kp LG(LC(Q))   _X_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤             ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤             ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   &key_repeat       &copy_cut         PASTE             &undo_redo        ___                         ___               &kp C_PREV        &kp C_VOL_DN      &kp C_VOL_UP      &kp C_NEXT      _X_
+   _X_   &key_repeat       &copy_cut         _PASTE            &undo_redo        ___                         ___               &kp C_PREV        &kp C_VOL_DN      &kp C_VOL_UP      &kp C_NEXT      _X_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤             ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤             ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
