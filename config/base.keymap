@@ -34,7 +34,7 @@
 #define ___ &trans
 
 #define TAP_MS 200
-#define SHORT_TAP_MS 150
+#define SHORT_TAP_MS 145
 
 &lt {
     flavor = "balanced";
@@ -43,14 +43,9 @@
 };
 
 &mt {
-    flavor = "tap-preferred";
+    flavor = "balanced";
     tapping-term-ms = <TAP_MS>;
     quick-tap-ms = <TAP_MS>;
-};
-
-&sk {
-    release-after-ms = <1000>;
-    quick-release;
 };
 
 #define MAKE_HRM(NAME, HOLD, TAP)         \
@@ -67,16 +62,34 @@ MAKE_HRM(hm, &kp, &kp)
 // ---------- PRI ----------
 //////////////////////////////
 
+#define _SWITCH_TO_PRE &kp LC(SPACE)
+#define _SWITCH_TO_CHI &kp LA(LC(LS(C)))
+#define _SWITCH_TO_RUS &kp LA(LC(LS(R)))
+#define _SWITCH_TO_UNI &kp LA(LC(LS(U)))
+
+// MAKE_HRM(_switch_lang, &kp LGUI, &kp LA(LC(LS(U))))
+ZMK_BEHAVIOR(switch_lang, tap_dance,
+    bindings = <&mt LGUI LA(LC(LS(U)))>, <_SWITCH_TO_CHI>, <_SWITCH_TO_RUS>;
+)
+
+ZMK_BEHAVIOR(_enable_rus, macro,
+    bindings = <_SWITCH_TO_UNI &tog RUS>;
+)
+ZMK_BEHAVIOR(enable_rus, tap_dance,
+    bindings = <&caps_word>, <&_enable_rus>;
+)
+
+ZMK_BEHAVIOR(_disable_rus, macro,
+    bindings = <_SWITCH_TO_PRE &tog RUS>;
+)
+ZMK_BEHAVIOR(disable_rus, tap_dance,
+    bindings = <&caps_word>, <&_disable_rus>;
+)
+
+////////////////////
+
 ZMK_BEHAVIOR(special_leader, tap_dance,
     bindings = <&lt APP LA(V)>, <&kp LA(Z)>;
-)
-
-ZMK_BEHAVIOR(to_rus, macro,
-    bindings = <&kp LA(LC(LS(U))) &tog RUS>;
-)
-
-ZMK_BEHAVIOR(pri_lang_switch, tap_dance,
-    bindings = <&hm LGUI LC(SPACE)>, <&caps_word>, <&to_rus>;
 )
 
 ZMK_LAYER(PRI,
@@ -86,12 +99,12 @@ ZMK_LAYER(PRI,
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                 ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //             `                 -                 *                 &                 _                                               #                 !                 ,                 .                 \
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                 ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   &hm LGUI A        &hm LALT S        &hm LCTRL D       &hm LSHFT F       &kp G                                           &kp H             &hm LSHFT J       &hm LCTRL K       &hm LALT L       &pri_lang_switch _X_
+   _X_   &hm LGUI A        &hm LALT S        &hm LCTRL D       &hm LSHFT F       &kp G                                           &kp H             &hm LSHFT J       &hm LCTRL K       &hm LALT L       &switch_lang     _X_
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                 ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //            _x_                +                 /                 |                 ^                                               @                 ?                 ;                 :                _x_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                 ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   &kp Z             &kp X             &kp C             &kp V             &kp B                                           &kp N             &kp M             &kp 0             &kp 0             &kp 0           _X_
+   _X_   &kp Z             &kp X             &kp C             &kp V             &kp B                                           &kp N             &kp M             &kp 0             &kp 0             &enable_rus     _X_
 //                     _x_                (                 )                 =                                                                 %                 {                 }                _x_
 //╰───╯ ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯                                 ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯ ╰───╯
 //                                                            ╭─────────────┬───┬─────────────╮ ╭─────────────╮ ╭─────────────╮ ╭─────────────┬───┬─────────────╮
@@ -103,24 +116,15 @@ ZMK_LAYER(PRI,
 // ---------- RUS ----------
 //////////////////////////////
 
-MAKE_HRM(hm_f  , &sk , &ru_f)
-MAKE_HRM(hm_bi , &sk , &ru_bi)
-MAKE_HRM(hm_v  , &sk , &ru_v)
-MAKE_HRM(hm_a  , &sk , &ru_a)
+MAKE_HRM(hm_f  , &kp , &ru_f)
+MAKE_HRM(hm_bi , &kp , &ru_bi)
+MAKE_HRM(hm_v  , &kp , &ru_v)
+MAKE_HRM(hm_a  , &kp , &ru_a)
 
-MAKE_HRM(hm_o  , &sk , &ru_o)
-MAKE_HRM(hm_l  , &sk , &ru_l)
-MAKE_HRM(hm_d  , &sk , &ru_d)
-MAKE_HRM(hm_zh , &sk , &ru_zh)
-
-ZMK_BEHAVIOR(from_rus, macro,
-    bindings = <&kp LC(SPACE) &tog RUS>;
-)
-
-// TODO: caps_word is not working!
-ZMK_BEHAVIOR(rus_lang_switch, tap_dance,
-    bindings = <&hm_zh GUI 0>, <&caps_word>, <&from_rus>;
-)
+MAKE_HRM(hm_o  , &kp , &ru_o)
+MAKE_HRM(hm_l  , &kp , &ru_l)
+MAKE_HRM(hm_d  , &kp , &ru_d)
+MAKE_HRM(hm_zh , &kp , &ru_zh)
 
 ZMK_LAYER(RUS,
 //╭───╮ ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮             ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮ ╭───╮
@@ -128,11 +132,11 @@ ZMK_LAYER(RUS,
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤             ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤             ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   &hm_f LGUI 0      &hm_bi LALT 0     &hm_v LCTRL 0     &hm_a LSHFT 0     &ru_p                       &ru_r             &hm_o LSHFT 0     &hm_l LCTRL 0     &hm_d LALT 0     &rus_lang_switch _X_
+   _X_   &hm_f LGUI 0      &hm_bi LALT 0     &hm_v LCTRL 0     &hm_a LSHFT 0     &ru_p                       &ru_r             &hm_o LSHFT 0     &hm_l LCTRL 0     &hm_d LALT 0      &hm_zh GUI 0    _X_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤             ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤             ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   &ru_ya            &ru_ch            &ru_s             &ru_m             &ru_i                       &ru_t             &ru_tone          &ru_b             &ru_yu            ___             _X_
+   _X_   &ru_ya            &ru_ch            &ru_s             &ru_m             &ru_i                       &ru_t             &ru_tone          &ru_b             &ru_yu            &disable_rus    _X_
 //╰───╯ ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯             ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯ ╰───╯
 //                                                            ╭─────────────┬───┬─────────────╮ ╭───╮ ╭───╮ ╭─────────────┬───┬─────────────╮
                                                                ___               ___             ___   ___   ___               ___
