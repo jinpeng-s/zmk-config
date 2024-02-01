@@ -4,7 +4,6 @@
 #define HOST_OS 2  // set to 2 for macOS/Windows-Alt-Codes, default is 0 (Windows)
 
 #include "../zmk-nodefree-config/helper.h"
-#include "../zmk-nodefree-config/international_chars/russian.dtsi"
 
 // 主层，与副层共同完成所有非功能性输入
 #define PRI 0
@@ -18,6 +17,7 @@
 // 应用层，放置应用快捷键
 #define APP 3
 
+// 弃置层，放置弃置快捷键
 #define NON 4
 
 // 临时层，放置测试快捷键
