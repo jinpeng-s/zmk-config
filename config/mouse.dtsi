@@ -27,11 +27,11 @@
 
 //////////////////////////////
 
-#define U_MOUSE_SCROLL_MAX 50       // 10
+#define U_MOUSE_SCROLL_MAX 10       // 10
 
 &msc {
   acceleration-exponent = <1>;      // 0
-  time-to-max-speed-ms = <5000>;    // 40
+  time-to-max-speed-ms = <1000>;    // 40
   delay-ms = <0>;                   // 10
 };
 
