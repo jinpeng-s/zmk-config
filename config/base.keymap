@@ -207,37 +207,39 @@ ZMK_LAYER(NON,
 // ---------- TMP ----------
 //////////////////////////////
 
-ZMK_BEHAVIOR(smart_mouse_up, tap_dance,
+ZMK_BEHAVIOR(mouse_click, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <U_MS_U>, <U_WH_U>;
+    bindings = <&mkp LCLK>, <&mkp RCLK>;
 )
 
-ZMK_BEHAVIOR(smart_mouse_down, tap_dance,
+ZMK_BEHAVIOR(move_up, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <U_MS_D>, <U_WH_D>;
+    bindings = <&mmv MOVE_UP>, <&msc SCROLL_DOWN>;
 )
-
-ZMK_BEHAVIOR(smart_mouse_left, tap_dance,
+ZMK_BEHAVIOR(move_down, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <U_MS_L>, <U_WH_L>;
+    bindings = <&mmv MOVE_DOWN>, <&msc SCROLL_UP>;
 )
-
-ZMK_BEHAVIOR(smart_mouse_right, tap_dance,
+ZMK_BEHAVIOR(move_left, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <U_MS_R>, <U_WH_R>;
+    bindings = <&mmv MOVE_LEFT>, <&msc SCROLL_RIGHT>;
+)
+ZMK_BEHAVIOR(move_right, tap_dance,
+    tapping-term-ms = <SHORT_TAP_MS>;
+    bindings = <&mmv MOVE_RIGHT>, <&msc SCROLL_LEFT>;
 )
 
 ZMK_LAYER(TMP,
 //╭───╮ ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮                                   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮ ╭───╮
-   _X_   ___               ___               ___               ___               ___                                               U_WH_L            U_WH_D            U_WH_U            U_WH_R            ___             _X_
+   _X_   ___               ___               ___               ___               ___                                               ___               ___               &move_up          ___               ___             _X_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   ___               U_BTN1            U_BTN2            ___               ___                                               &smart_mouse_left &smart_mouse_down &smart_mouse_up   &smart_mouse_right ___             _X_
+   _X_   ___               ___               ___               ___               ___                                               ___               &move_left        &mouse_click      &move_right       ___             _X_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   ___               ___               ___               ___               ___                                               ___               ___               ___               ___               ___             _X_
+   _X_   ___               ___               ___               ___               ___                                               ___               ___               &move_down        ___               ___             _X_
 //╰───╯ ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯                                   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯ ╰───╯
 //                                                            ╭─────────────┬───┬─────────────╮ ╭─────────────┬───┬─────────────╮ ╭─────────────┬───┬─────────────╮
                                                                ___               ___             ___               ___             _X_               ___
