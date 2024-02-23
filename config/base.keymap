@@ -25,7 +25,7 @@
 #define NAV 6
 
 // 控制层
-#define BLU 99
+#define BLU 7
 
 #include "combos.dtsi"
 #include "mouse.dtsi"
