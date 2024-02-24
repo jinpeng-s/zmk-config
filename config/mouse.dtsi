@@ -2,20 +2,25 @@
 
 //////////////////////////////
 
-#define U_MOUSE_MOVE_MAX 1000       // 600
-#define U_MOUSE_MOVE_MIN 200
-
 &mmv {
   acceleration-exponent = <1>;      // 1
   time-to-max-speed-ms = <0>;       // 40
   delay-ms = <0>;                   // 0
 };
 
+#define U_MOUSE_MOVE_INF 1000000
+#define I_M_U MOVE_Y(-U_MOUSE_MOVE_INF)
+#define I_M_D MOVE_Y(U_MOUSE_MOVE_INF)
+#define I_M_L MOVE_X(-U_MOUSE_MOVE_INF)
+#define I_M_R MOVE_X(U_MOUSE_MOVE_INF)
+
+#define U_MOUSE_MOVE_MAX 1000       // 600
 #define M_U MOVE_Y(-U_MOUSE_MOVE_MAX)
 #define M_D MOVE_Y(U_MOUSE_MOVE_MAX)
 #define M_L MOVE_X(-U_MOUSE_MOVE_MAX)
 #define M_R MOVE_X(U_MOUSE_MOVE_MAX)
 
+#define U_MOUSE_MOVE_MIN 200
 #define S_M_U MOVE_Y(-U_MOUSE_MOVE_MIN)
 #define S_M_D MOVE_Y(U_MOUSE_MOVE_MIN)
 #define S_M_L MOVE_X(-U_MOUSE_MOVE_MIN)
