@@ -108,33 +108,16 @@ ZMK_BEHAVIOR(special_leader, tap_dance,
 //     continue-list = <BSPC DEL N0 N1 N2 N3 N4 N5 N6 N7 N8 N9 DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
 // };
 
-ZMK_BEHAVIOR(S_M_UL, macro,
-    bindings = <&mmv S_M_U &mmv S_M_L>;
-)
-ZMK_BEHAVIOR(S_M_UR, macro,
-    bindings = <&mmv S_M_U &mmv S_M_R>;
-)
-ZMK_BEHAVIOR(S_M_DL, macro,
-    bindings = <&mmv S_M_D &mmv S_M_L>;
-)
-ZMK_BEHAVIOR(S_M_DR, macro,
-    bindings = <&mmv S_M_D &mmv S_M_R>;
-)
-
-// tap: num-word | double-tap: sticky num-layer | hold: num-layer
-#define SMART_NUM &smart_num SEC 0
-ZMK_BEHAVIOR(smart_num, hold_tap,
+#define SMART_MOUSE &smart_mouse 0 BSPC
+ZMK_BEHAVIOR(smart_mouse, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <200>;
-    bindings = <&mo>, <&num_dance>;
+    bindings = <&num_word>, <&kp>;
 )
-ZMK_BEHAVIOR(num_dance, tap_dance,
-    tapping-term-ms = <200>;
-    bindings = <&num_word>, <&sl SEC>;  // reverse this for sticky-num on single tap
-)
-&num_word {  // num-word, requires PR #1451
-    layers = <SEC>;
-    continue-list = <BSPC DEL N0 N1 N2 N3 N4 N5 N6 N7 N8 N9 DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
+&num_word {
+    layers = <TMP>;
+    // TODO: how to use continue-list to smartly switch to the default layer?
+    // continue-list = <I_M_U I_M_D I_M_L I_M_R M_U M_D M_L M_R S_M_U S_M_D S_M_L S_M_R A>;
 };
 
 ZMK_LAYER(PRI,
@@ -149,11 +132,11 @@ ZMK_LAYER(PRI,
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                 ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //            _x_                +                 *                 &                 =                                               ~                 %                 !                 ^                _x_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                 ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   &kp Z             &kp X             &kp C             &kp V             &kp B                                           &kp N             &kp M             &comma_morph      &dot_morph        SMART_NUM       _X_
+   _X_   &kp Z             &kp X             &kp C             &kp V             &kp B                                           &kp N             &kp M             &comma_morph      &dot_morph        &kp 0           _X_
 //                     _x_                (                 )                _x_                                                               _x_                {                 }                _x_
 //╰───╯ ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯                                 ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯ ╰───╯
 //                                                            ╭─────────────┬───┬─────────────╮ ╭─────────────╮ ╭─────────────╮ ╭─────────────┬───┬─────────────╮
-                                                               &lt SEC SPACE     &special_leader &lt APP TAB     &lt NON ESC     &lt TMP BSPC      &lt NAV RET
+                                                               &lt SEC SPACE     &special_leader &lt APP TAB     &lt NON ESC     SMART_MOUSE       &lt NAV RET
 //                                                            ╰─────────────┴───┴─────────────╯ ╰─────────────╯ ╰─────────────╯ ╰─────────────┴───┴─────────────╯
 )
 
@@ -272,7 +255,7 @@ MAKE_HRM(mouse, &mmv, &mmv)
 
 ZMK_LAYER(TMP,
 //╭───╮ ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮                                   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮ ╭───╮
-   _X_   ___               &S_M_UL           &mmv S_M_U        &S_M_UR           ___                                               &msc SCROLL_RIGHT &msc SCROLL_UP    &msc SCROLL_DOWN  &msc SCROLL_LEFT  ___             _X_
+   _X_   ___               ___               &mmv S_M_U        ___               ___                                               &msc SCROLL_RIGHT &msc SCROLL_UP    &msc SCROLL_DOWN  &msc SCROLL_LEFT  ___             _X_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
@@ -280,7 +263,7 @@ ZMK_LAYER(TMP,
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   ___               &S_M_DL           &mmv S_M_D        &S_M_DR           ___                                               &mmv I_M_R        &mmv I_M_U        &mmv I_M_D        &mmv I_M_L        ___             _X_
+   _X_   ___               ___               &mmv S_M_D        ___               ___                                               &mmv I_M_R        &mmv I_M_U        &mmv I_M_D        &mmv I_M_L        ___             _X_
 //╰───╯ ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯                                   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯ ╰───╯
 //                                                            ╭─────────────┬───┬─────────────╮ ╭─────────────┬───┬─────────────╮ ╭─────────────┬───┬─────────────╮
                                                                &mkp LCLK         &mkp RCLK       ___               ___             _X_               ___
