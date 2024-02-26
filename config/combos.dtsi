@@ -88,17 +88,17 @@ ZMK_BEHAVIOR(smart_par, tap_dance,
 ZMK_COMBO(apos  , &smart_aps         , LT4 LT3 , PRI SEC , COMBO_TERM)
 ZMK_COMBO(lt    , &smart_thn         , LT3 LT2 , PRI SEC , COMBO_TERM)
 ZMK_COMBO(rt    , &kp LS(DOT)        , LT2 LT1 , PRI SEC , COMBO_TERM)
-ZMK_COMBO(___   , &kp 0              , LT1 LT0 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , LT1 LT0 , PRI SEC , COMBO_TERM)
 
-ZMK_COMBO(___   , &kp 0              , LM4 LM3 , PRI SEC , COMBO_TERM)
-ZMK_COMBO(___   , &kp 0              , LM3 LM2 , PRI SEC , COMBO_TERM)
-ZMK_COMBO(___   , &kp 0              , LM2 LM1 , PRI SEC , COMBO_TERM)
-ZMK_COMBO(___   , &kp 0              , LM1 LM0 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , LM4 LM3 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , LM3 LM2 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , LM2 LM1 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , LM1 LM0 , PRI SEC , COMBO_TERM)
 
-ZMK_COMBO(___   , &kp 0              , LB4 LB3 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , LB4 LB3 , PRI SEC , COMBO_TERM)
 ZMK_COMBO(lpar  , &smart_par         , LB3 LB2 , PRI SEC , COMBO_TERM)
 ZMK_COMBO(rpar  , &kp RPAR           , LB2 LB1 , PRI SEC , COMBO_TERM)
-ZMK_COMBO(___   , &kp 0              , LB1 LB0 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , LB1 LB0 , PRI SEC , COMBO_TERM)
 
 // Horizontal combos - right hand
 
@@ -123,20 +123,20 @@ ZMK_BEHAVIOR(smart_apss, tap_dance,
     bindings = <&kp LS(APOS)>, <&_smart_apss>;
 )
 
-ZMK_COMBO(___   , &kp 0              , RT0 RT1 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , RT0 RT1 , PRI SEC , COMBO_TERM)
 ZMK_COMBO(lbkt  , &smart_bkt         , RT1 RT2 , PRI SEC , COMBO_TERM)
 ZMK_COMBO(rbkt  , &kp RBKT           , RT2 RT3 , PRI SEC , COMBO_TERM)
 ZMK_COMBO(aposs , &smart_apss        , RT3 RT4 , PRI SEC , COMBO_TERM)
 
-ZMK_COMBO(___   , &kp 0              , RM0 RM1 , PRI SEC , COMBO_TERM)
-ZMK_COMBO(___   , &kp 0              , RM1 RM2 , PRI SEC , COMBO_TERM)
-ZMK_COMBO(___   , &kp 0              , RM2 RM3 , PRI SEC , COMBO_TERM)
-ZMK_COMBO(___   , &kp 0              , RM3 RM4 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , RM0 RM1 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , RM1 RM2 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , RM2 RM3 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , RM3 RM4 , PRI SEC , COMBO_TERM)
 
-ZMK_COMBO(___   , &kp 0              , RB0 RB1 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , RB0 RB1 , PRI SEC , COMBO_TERM)
 ZMK_COMBO(lbrc  , &smart_brc         , RB1 RB2 , PRI SEC , COMBO_TERM)
 ZMK_COMBO(rbrc  , &kp RBRC           , RB2 RB3 , PRI SEC , COMBO_TERM)
-ZMK_COMBO(___   , &kp 0              , RB3 RB4 , PRI SEC , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , RB3 RB4 , PRI SEC , COMBO_TERM)
 
 /*                     KEY POSITIONS
   ╭─────────────────────╮         ╭─────────────────────╮
