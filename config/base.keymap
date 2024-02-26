@@ -120,6 +120,7 @@ ZMK_BEHAVIOR(smart_mouse, hold_tap,
     // continue-list = <I_M_U I_M_D I_M_L I_M_R M_U M_D M_L M_R S_M_U S_M_D S_M_L S_M_R A>;
 };
 
+// TODO: 设置按键时间, 现有配置影响 RET 的使用
 ZMK_BEHAVIOR(move_leader, tap_dance,
     bindings = <&lt NAV RET>, <&mo TMP>;
 )
