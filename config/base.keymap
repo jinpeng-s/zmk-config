@@ -121,7 +121,7 @@ ZMK_BEHAVIOR(smart_mouse, hold_tap,
 };
 
 ZMK_BEHAVIOR(move_leader, tap_dance,
-    bindings = <&lt NAV RET>, <&lt SYS RET)>;
+    bindings = <&lt NAV RET>, <&mo TMP>;
 )
 
 ZMK_LAYER(PRI,
