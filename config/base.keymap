@@ -38,7 +38,7 @@
 #define ___ &trans
 
 #define TAP_MS 200
-#define SHORT_TAP_MS 145
+#define SHORT_TAP_MS 165
 
 &lt {
     flavor = "balanced";
@@ -67,6 +67,7 @@ MAKE_HRM(hm, &kp, &kp)
 //////////////////////////////
 
 ZMK_BEHAVIOR(switch_lang, tap_dance,
+    tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <&mt LGUI LC(SPACE)>, <&caps_word>;
 )
 
@@ -83,6 +84,7 @@ SIMPLE_MORPH(comma_morph, SFT, &kp COMMA, &kp SEMI)
 SIMPLE_MORPH(dot_morph, SFT, &kp DOT, &kp COLON)
 
 ZMK_BEHAVIOR(special_leader, tap_dance,
+    tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <&lt SYS LA(V)>, <&kp LA(Z)>;
 )
 
@@ -232,6 +234,7 @@ ZMK_LAYER(SEC,
 #define _COPY &kp LG(C)
 #define _CUT &kp LG(X)
 ZMK_BEHAVIOR(copy_cut, tap_dance,
+    tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <_COPY>, <_CUT>;
 )
 
@@ -240,10 +243,12 @@ ZMK_BEHAVIOR(copy_cut, tap_dance,
 #define _UNDO &kp LG(Z)
 #define _REDO &kp LG(LS(Z))
 ZMK_BEHAVIOR(undo_redo, tap_dance,
+    tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <_UNDO>, <_REDO>;
 )
 
 ZMK_BEHAVIOR(vol_dn_mute, tap_dance,
+    tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <&kp C_VOL_DN>, <&kp C_MUTE>;
 )
 
@@ -350,38 +355,38 @@ ZMK_BEHAVIOR(smart_right, tap_dance,
 
 ZMK_BEHAVIOR(_smart_mouse_left, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&mmv MOUSE_NOM_LEFT>, <&mmv MOUSE_MIN_LEFT>;
+    bindings = <&mmv MOUSE_NOM_LEFT>, <&mmv MOUSE_MAX_LEFT>;
 )
 ZMK_BEHAVIOR(_smart_mouse_down, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&mmv MOUSE_NOM_DOWN>, <&mmv MOUSE_MIN_DOWN>;
+    bindings = <&mmv MOUSE_NOM_DOWN>, <&mmv MOUSE_MAX_DOWN>;
 )
 ZMK_BEHAVIOR(_smart_mouse_up, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&mmv MOUSE_NOM_UP>, <&mmv MOUSE_MIN_UP>;
+    bindings = <&mmv MOUSE_NOM_UP>, <&mmv MOUSE_MAX_UP>;
 )
 ZMK_BEHAVIOR(_smart_mouse_right, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&mmv MOUSE_NOM_RIGHT>, <&mmv MOUSE_MIN_RIGHT>;
+    bindings = <&mmv MOUSE_NOM_RIGHT>, <&mmv MOUSE_MAX_RIGHT>;
 )
 
-// tap        : move mouse left
-// tap + tap  : move mouse left very fast
-// tap + shift: move mouse left very slow
+// tap        : move mouse {hjkl}
+// tap + tap  : move mouse {hjkl} very fast
+// tap + shift: move mouse {hjkl} very slow
 ZMK_BEHAVIOR(smart_mouse_left, mod_morph,
-    bindings = <&_smart_mouse_left>, <&mmv MOUSE_NOM_LEFT>;
+    bindings = <&_smart_mouse_left>, <&mmv MOUSE_MIN_LEFT>;
     mods = <(MOD_LSFT)>;
 )
 ZMK_BEHAVIOR(smart_mouse_down, mod_morph,
-    bindings = <&_smart_mouse_down>, <&mmv MOUSE_NOM_DOWN>;
+    bindings = <&_smart_mouse_down>, <&mmv MOUSE_MIN_DOWN>;
     mods = <(MOD_LSFT)>;
 )
 ZMK_BEHAVIOR(smart_mouse_up, mod_morph,
-    bindings = <&_smart_mouse_up>, <&mmv MOUSE_NOM_UP>;
+    bindings = <&_smart_mouse_up>, <&mmv MOUSE_MIN_UP>;
     mods = <(MOD_LSFT)>;
 )
 ZMK_BEHAVIOR(smart_mouse_right, mod_morph,
-    bindings = <&_smart_mouse_right>, <&mmv MOUSE_NOM_RIGHT>;
+    bindings = <&_smart_mouse_right>, <&mmv MOUSE_MIN_RIGHT>;
     mods = <(MOD_LSFT)>;
 )
 
