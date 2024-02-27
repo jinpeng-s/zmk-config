@@ -248,21 +248,19 @@ ZMK_BEHAVIOR(smart_left, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <&kp LEFT>, <&kp HOME>;
 )
-
 ZMK_BEHAVIOR(smart_down, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <&kp DOWN>,  <&kp PG_DN>;
 )
-
 ZMK_BEHAVIOR(smart_up, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <&kp UP>, <&kp PG_UP>;
 )
-
 ZMK_BEHAVIOR(smart_right, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
     bindings = <&kp RIGHT>, <&kp END>;
 )
+
 
 ZMK_BEHAVIOR(smart_mouse_up, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
@@ -281,13 +279,21 @@ ZMK_BEHAVIOR(smart_mouse_right, tap_dance,
     bindings = <&mmv M_R>, <&mmv I_M_L>;
 )
 
+// tap        : move mouse left
+// tap + tap  : move mouse left very fast
+// tap + shift: move mouse left very slow
+ZMK_BEHAVIOR(aaaa, mod_morph,
+    bindings = <&smart_mouse_left>, <&mmv S_M_L>;
+    mods = <(MOD_LSFT)>;
+)
+
 ZMK_LAYER(NAV,
 //╭───╮ ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮                                   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮ ╭───╮
-   _X_   _X_               _X_               &mmv S_M_U        _X_               _X_                                               &smart_mouse_left &smart_mouse_down &smart_mouse_up   &smart_mouse_right _X_            _X_
+   _X_   _X_               _X_               &mmv S_M_U        _X_               _X_                                               &aaaa             &smart_mouse_down &smart_mouse_up   &smart_mouse_right _X_            _X_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   _X_               &mmv S_M_L        _X_               &mmv S_M_R        _X_                                               &smart_left       &smart_down       &smart_up         &smart_right      _X_             _X_
+   _X_   _X_               &mmv S_M_L        _X_               ___               _X_                                               &smart_left       &smart_down       &smart_up         &smart_right      _X_             _X_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
