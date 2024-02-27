@@ -86,6 +86,47 @@ ZMK_BEHAVIOR(special_leader, tap_dance,
     bindings = <&lt SYS LA(V)>, <&kp LA(Z)>;
 )
 
+ZMK_BEHAVIOR(_smart_0, mod_morph,
+    bindings = <&kp N0>, <&kp 0>;
+    mods = <(MOD_LSFT)>;
+)
+ZMK_BEHAVIOR(_smart_1, mod_morph,
+    bindings = <&kp N1>, <&kp F1>;
+    mods = <(MOD_LSFT)>;
+)
+ZMK_BEHAVIOR(_smart_2, mod_morph,
+    bindings = <&kp N2>, <&kp F2>;
+    mods = <(MOD_LSFT)>;
+)
+ZMK_BEHAVIOR(_smart_3, mod_morph,
+    bindings = <&kp N3>, <&kp F3>;
+    mods = <(MOD_LSFT)>;
+)
+ZMK_BEHAVIOR(_smart_4, mod_morph,
+    bindings = <&kp N4>, <&kp F4>;
+    mods = <(MOD_LSFT)>;
+)
+ZMK_BEHAVIOR(_smart_5, mod_morph,
+    bindings = <&kp N5>, <&kp F5>;
+    mods = <(MOD_LSFT)>;
+)
+ZMK_BEHAVIOR(_smart_6, mod_morph,
+    bindings = <&kp N6>, <&kp F6>;
+    mods = <(MOD_LSFT)>;
+)
+ZMK_BEHAVIOR(_smart_7, mod_morph,
+    bindings = <&kp N7>, <&kp F7>;
+    mods = <(MOD_LSFT)>;
+)
+ZMK_BEHAVIOR(_smart_8, mod_morph,
+    bindings = <&kp N8>, <&kp F8>;
+    mods = <(MOD_LSFT)>;
+)
+ZMK_BEHAVIOR(_smart_9, mod_morph,
+    bindings = <&kp N9>, <&kp F9>;
+    mods = <(MOD_LSFT)>;
+)
+
 ZMK_LAYER(PRI,
 //╭───╮ ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮                                 ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮ ╭───╮
    _X_   &kp Q             &kp W             &kp E             &kp R             &kp T                                           &kp Y             &kp U             &kp I             &kp O             &kp P           _X_
@@ -111,20 +152,71 @@ ZMK_LAYER(PRI,
 //////////////////////////////
 
 // TODO: this layer is useless, maybe we can remove it
-// TODO: add Fn key
-// TODO: add F{1-12} keys
+// TODO: add Fn
+
+// ZMK_BEHAVIOR(smart_0, mod_morph,
+//     bindings = <&kp A>, <&_smart_0>;
+//     mods = <(MOD_LALT)>;
+// )
+// ZMK_BEHAVIOR(smart_1, mod_morph,
+//     bindings = <&kp X>, <&_smart_1>;
+//     mods = <(MOD_LALT)>;
+// )
+// ZMK_BEHAVIOR(smart_2, mod_morph,
+//     bindings = <&kp C>, <&_smart_2>;
+//     mods = <(MOD_LALT)>;
+// )
+// ZMK_BEHAVIOR(smart_3, mod_morph,
+//     bindings = <&kp V>, <&_smart_3>;
+//     mods = <(MOD_LALT)>;
+// )
+// ZMK_BEHAVIOR(smart_4, mod_morph,
+//     bindings = <&kp S>, <&_smart_4>;
+//     mods = <(MOD_LALT)>;
+// )
+// ZMK_BEHAVIOR(smart_5, mod_morph,
+//     bindings = <&kp D>, <&_smart_5>;
+//     mods = <(MOD_LALT)>;
+// )
+// ZMK_BEHAVIOR(smart_6, mod_morph,
+//     bindings = <&kp F>, <&_smart_6>;
+//     mods = <(MOD_LALT)>;
+// )
+// ZMK_BEHAVIOR(smart_7, mod_morph,
+//     bindings = <&kp W>, <&_smart_7>;
+//     mods = <(MOD_LALT)>;
+// )
+// ZMK_BEHAVIOR(smart_8, mod_morph,
+//     bindings = <&kp E>, <&_smart_8>;
+//     mods = <(MOD_LALT)>;
+// )
+// ZMK_BEHAVIOR(smart_9, mod_morph,
+//     bindings = <&kp R>, <&_smart_9>;
+//     mods = <(MOD_LALT)>;
+// )
+
+// ZMK_COMBO(0 , &smart_0 , RM2 LM4 , PRI , COMBO_TERM)
+// ZMK_COMBO(1 , &smart_1 , RM2 LB3 , PRI , COMBO_TERM)
+// ZMK_COMBO(2 , &smart_2 , RM2 LB2 , PRI , COMBO_TERM)
+// ZMK_COMBO(3 , &smart_3 , RM2 LB1 , PRI , COMBO_TERM)
+// ZMK_COMBO(4 , &smart_4 , RM2 LM3 , PRI , COMBO_TERM)
+// ZMK_COMBO(5 , &smart_5 , RM2 LM2 , PRI , COMBO_TERM)
+// ZMK_COMBO(6 , &smart_6 , RM2 LM1 , PRI , COMBO_TERM)
+// ZMK_COMBO(7 , &smart_7 , RM2 LT3 , PRI , COMBO_TERM)
+// ZMK_COMBO(8 , &smart_8 , RM2 LT2 , PRI , COMBO_TERM)
+// ZMK_COMBO(9 , &smart_9 , RM2 LT1 , PRI , COMBO_TERM) key
 
 ZMK_LAYER(SEC,
 //╭───╮ ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮                                   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮ ╭───╮
-   _X_   _X_               &kp N7            &kp N8            &kp N9            _X_                                               _X_               _X_               _X_               _X_               _X_             _X_
+   _X_   _X_               &_smart_7         &_smart_8         &_smart_9         _X_                                               _X_               _X_               _X_               _X_               _X_             _X_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   &kp N0            &kp N4            &kp N5            &kp N6            _X_                                               _X_               _X_               _X_               _X_               _X_             _X_
+   _X_   &_smart_0         &_smart_4         &_smart_5         &_smart_6         _X_                                               _X_               &hm LSHFT 0       &hm LCTRL 0       &hm LALT 0        &hm LGUI 0      _X_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   _X_               &kp N1            &kp N2            &kp N3            _X_                                               _X_               _X_               _X_               _X_               _X_             _X_
+   _X_   _X_               &_smart_1         &_smart_2         &_smart_3         _X_                                               _X_               _X_               _X_               _X_               _X_             _X_
 //╰───╯ ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯                                   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯ ╰───╯
 //                                                            ╭─────────────┬───┬─────────────╮ ╭─────────────┬───┬─────────────╮ ╭─────────────┬───┬─────────────╮
                                                                ___               ___             ___               ___             ___               ___
