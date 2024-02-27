@@ -66,11 +66,6 @@ MAKE_HRM(hm, &kp, &kp)
 // ---------- PRI ----------
 //////////////////////////////
 
-#define _SWITCH_TO_PRE &kp LC(SPACE)
-#define _SWITCH_TO_CHI &kp LA(LC(LS(C)))
-#define _SWITCH_TO_ENG &kp LA(LC(LS(E)))
-#define _SWITCH_TO_RUS &kp LA(LC(LS(R)))
-
 ZMK_BEHAVIOR(switch_lang, tap_dance,
     bindings = <&mt LGUI LC(SPACE)>, <&caps_word>;
 )
@@ -261,43 +256,54 @@ ZMK_BEHAVIOR(smart_right, tap_dance,
     bindings = <&kp RIGHT>, <&kp END>;
 )
 
-
-ZMK_BEHAVIOR(smart_mouse_up, tap_dance,
+ZMK_BEHAVIOR(_smart_mouse_left, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&mmv M_U>, <&mmv I_M_D>;
+    bindings = <&mmv MOUSE_NOM_LEFT>, <&mmv MOUSE_MIN_LEFT>;
 )
-ZMK_BEHAVIOR(smart_mouse_down, tap_dance,
+ZMK_BEHAVIOR(_smart_mouse_down, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&mmv M_D>, <&mmv I_M_U>;
+    bindings = <&mmv MOUSE_NOM_DOWN>, <&mmv MOUSE_MIN_DOWN>;
 )
-ZMK_BEHAVIOR(smart_mouse_left, tap_dance,
+ZMK_BEHAVIOR(_smart_mouse_up, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&mmv M_L>, <&mmv I_M_R>;
+    bindings = <&mmv MOUSE_NOM_UP>, <&mmv MOUSE_MIN_UP>;
 )
-ZMK_BEHAVIOR(smart_mouse_right, tap_dance,
+ZMK_BEHAVIOR(_smart_mouse_right, tap_dance,
     tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&mmv M_R>, <&mmv I_M_L>;
+    bindings = <&mmv MOUSE_NOM_RIGHT>, <&mmv MOUSE_MIN_RIGHT>;
 )
 
 // tap        : move mouse left
 // tap + tap  : move mouse left very fast
 // tap + shift: move mouse left very slow
-ZMK_BEHAVIOR(aaaa, mod_morph,
-    bindings = <&smart_mouse_left>, <&mmv S_M_L>;
+ZMK_BEHAVIOR(smart_mouse_left, mod_morph,
+    bindings = <&_smart_mouse_left>, <&mmv MOUSE_NOM_LEFT>;
+    mods = <(MOD_LSFT)>;
+)
+ZMK_BEHAVIOR(smart_mouse_down, mod_morph,
+    bindings = <&_smart_mouse_down>, <&mmv MOUSE_NOM_DOWN>;
+    mods = <(MOD_LSFT)>;
+)
+ZMK_BEHAVIOR(smart_mouse_up, mod_morph,
+    bindings = <&_smart_mouse_up>, <&mmv MOUSE_NOM_UP>;
+    mods = <(MOD_LSFT)>;
+)
+ZMK_BEHAVIOR(smart_mouse_right, mod_morph,
+    bindings = <&_smart_mouse_right>, <&mmv MOUSE_NOM_RIGHT>;
     mods = <(MOD_LSFT)>;
 )
 
 ZMK_LAYER(NAV,
 //╭───╮ ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮                                   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮ ╭───╮
-   _X_   _X_               _X_               &mmv S_M_U        _X_               _X_                                               &aaaa             &smart_mouse_down &smart_mouse_up   &smart_mouse_right _X_            _X_
+   _X_   _X_               _X_               _X_               _X_               _X_                                               &smart_mouse_left &smart_mouse_down &smart_mouse_up   &smart_mouse_right _X_            _X_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   _X_               &mmv S_M_L        _X_               ___               _X_                                               &smart_left       &smart_down       &smart_up         &smart_right      _X_             _X_
+   _X_   &hm LGUI 0        &hm LALT 0        &hm LCTRL 0       &hm LSHFT 0       _X_                                               &smart_left       &smart_down       &smart_up         &smart_right      _X_             _X_
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
 //
 //├───┤ ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤                                   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤ ├───┤
-   _X_   _X_               _X_               &mmv S_M_D        _X_               _X_                                               &msc SCROLL_RIGHT &msc SCROLL_UP    &msc SCROLL_DOWN  &msc SCROLL_LEFT  _X_             _X_
+   _X_   _X_               _X_               _X_               _X_               _X_                                               &msc SCROLL_RIGHT &msc SCROLL_UP    &msc SCROLL_DOWN  &msc SCROLL_LEFT  _X_             _X_
 //╰───╯ ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯                                   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯ ╰───╯
 //                                                            ╭─────────────┬───┬─────────────╮ ╭─────────────┬───┬─────────────╮ ╭─────────────┬───┬─────────────╮
                                                                &mkp LCLK         &mkp RCLK       ___               ___             ___               ___
