@@ -390,6 +390,16 @@ ZMK_BEHAVIOR(smart_mouse_right, mod_morph,
     mods = <(MOD_LSFT)>;
 )
 
+/*                     KEY POSITIONS
+  ╭─────────────────────╮         ╭─────────────────────╮
+  │ LT4 LT3 LT2 LT1 LT0 │         │ RT0 RT1 RT2 RT3 RT4 │
+  │ LM4 LM3 LM2 LM1 LM0 │         │ RM0 RM1 RM2 RM3 RM4 │
+  │ LB4 LB3 LB2 LB1 LB0 ╰───╮ ╭───╯ RB0 RB1 RB2 RB3 RB4 │
+  ╰───────────╮ LH2 LH1 LH0 │ │ RH0 RH1 RH2 ╭───────────╯
+              ╰─────────────╯ ╰─────────────╯          */
+
+ZMK_COMBO(nav , &mmv MOUSE_MIN_DOWN , LM1 RH2 RT1 , NAV , COMBO_TERM)
+
 ZMK_LAYER(NAV,
 //╭───╮ ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮                                   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮ ╭───╮
    _X_   _X_               _X_               _X_               _X_               _X_                                               &smart_mouse_left &smart_mouse_down &smart_mouse_up   &smart_mouse_right _X_            _X_
