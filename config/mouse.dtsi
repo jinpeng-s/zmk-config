@@ -42,5 +42,6 @@
 #define   SCROLL_SPEED   10
 #define   SCROLL_UP      SCRL_Y(-SCROLL_SPEED)
 #define   SCROLL_DOWN    SCRL_Y(SCROLL_SPEED)
-#define   SCROLL_LEFT    SCRL_X(-SCROLL_SPEED)
-#define   SCROLL_RIGHT   SCRL_X(SCROLL_SPEED)
+// natural scroll
+#define   SCROLL_LEFT    SCRL_X(SCROLL_SPEED)
+#define   SCROLL_RIGHT   SCRL_X(-SCROLL_SPEED)
