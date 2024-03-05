@@ -13,8 +13,6 @@
 #undef COMBO_TERM
 #define COMBO_TERM 30
 
-ZMK_COMBO(esc   , &kp ESC            , LH2 RH2 , PRI , COMBO_TERM)
-
 //////////////////////////////
 // Vertical combos
 //////////////////////////////
@@ -70,29 +68,36 @@ ZMK_BEHAVIOR(_smart_thn, macro,
     bindings = <&kp LT &kp GT &kp LEFT>;
 )
 ZMK_BEHAVIOR(smart_thn, tap_dance,
-    bindings = <&kp LT>, <&_smart_thn>;
+    bindings = <&kp LT>, <&_smart_thn>, <&kp GT>;
 )
 
 ZMK_BEHAVIOR(_smart_par, macro,
     bindings = <&kp LPAR &kp RPAR &kp LEFT>;
 )
 ZMK_BEHAVIOR(smart_par, tap_dance,
-    bindings = <&kp LPAR>, <&_smart_par>;
+    bindings = <&kp LPAR>, <&_smart_par>, <&kp RPAR>;
 )
 
-// ZMK_COMBO(___   , &kp 0              , LT4 LT3 , PRI , COMBO_TERM)
+ZMK_BEHAVIOR(_smart_grave, macro,
+    bindings = <&kp GRAVE &kp GRAVE &kp LEFT>;
+)
+ZMK_BEHAVIOR(smart_grave, tap_dance,
+    bindings = <&kp GRAVE>, <&_smart_grave>;
+)
+
+ZMK_COMBO(apos  , &smart_aps         , LT4 LT3 , PRI , COMBO_TERM)
 ZMK_COMBO(lt    , &smart_thn         , LT3 LT2 , PRI , COMBO_TERM)
-ZMK_COMBO(rt    , &kp LS(DOT)        , LT2 LT1 , PRI , COMBO_TERM)
+ZMK_COMBO(lpar  , &smart_par         , LT2 LT1 , PRI , COMBO_TERM)
 // ZMK_COMBO(___   , &kp 0              , LT1 LT0 , PRI , COMBO_TERM)
 
-// ZMK_COMBO(___   , &kp 0              , LM4 LM3 , PRI , COMBO_TERM)
+ZMK_COMBO(___   , &smart_par         , LM4 LM3 , PRI , COMBO_TERM)
 // ZMK_COMBO(___   , &kp 0              , LM3 LM2 , PRI , COMBO_TERM)
 // ZMK_COMBO(___   , &kp 0              , LM2 LM1 , PRI , COMBO_TERM)
 // ZMK_COMBO(___   , &kp 0              , LM1 LM0 , PRI , COMBO_TERM)
 
 // ZMK_COMBO(___   , &kp 0              , LB4 LB3 , PRI , COMBO_TERM)
-ZMK_COMBO(lpar  , &smart_par         , LB3 LB2 , PRI , COMBO_TERM)
-ZMK_COMBO(rpar  , &kp RPAR           , LB2 LB1 , PRI , COMBO_TERM)
+ZMK_COMBO(grave , &smart_grave       , LB3 LB2 , PRI , COMBO_TERM)
+ZMK_COMBO(tilde , &kp TILDE          , LB2 LB1 , PRI , COMBO_TERM)
 // ZMK_COMBO(___   , &kp 0              , LB1 LB0 , PRI , COMBO_TERM)
 
 // Horizontal combos - right hand
@@ -101,29 +106,36 @@ ZMK_BEHAVIOR(_smart_bkt, macro,
     bindings = <&kp LBKT &kp RBKT &kp LEFT>;
 )
 ZMK_BEHAVIOR(smart_bkt, tap_dance,
-    bindings = <&kp LBKT>, <&_smart_bkt>;
+    bindings = <&kp LBKT>, <&_smart_bkt>, <&kp RBKT>;
 )
 
 ZMK_BEHAVIOR(_smart_brc, macro,
     bindings = <&kp LBRC &kp RBRC &kp LEFT>;
 )
 ZMK_BEHAVIOR(smart_brc, tap_dance,
-    bindings = <&kp LBRC>, <&_smart_brc>;
+    bindings = <&kp LBRC>, <&_smart_brc>, <&kp RBRC>;
+)
+
+ZMK_BEHAVIOR(_smart_apss, macro,
+    bindings = <&kp LS(APOS) &kp LS(APOS) &kp LEFT>;
+)
+ZMK_BEHAVIOR(smart_apss, tap_dance,
+    bindings = <&kp LS(APOS)>, <&_smart_apss>;
 )
 
 // ZMK_COMBO(___   , &kp 0              , RT0 RT1 , PRI , COMBO_TERM)
 ZMK_COMBO(lbkt  , &smart_bkt         , RT1 RT2 , PRI , COMBO_TERM)
-ZMK_COMBO(rbkt  , &kp RBKT           , RT2 RT3 , PRI , COMBO_TERM)
-// ZMK_COMBO(___   , &kp 0              , RT3 RT4 , PRI , COMBO_TERM)
+ZMK_COMBO(lbrc  , &smart_brc         , RT2 RT3 , PRI , COMBO_TERM)
+ZMK_COMBO(aposs , &smart_apss        , RT3 RT4 , PRI , COMBO_TERM)
 
 // ZMK_COMBO(___   , &kp 0              , RM0 RM1 , PRI , COMBO_TERM)
 // ZMK_COMBO(___   , &kp 0              , RM1 RM2 , PRI , COMBO_TERM)
 // ZMK_COMBO(___   , &kp 0              , RM2 RM3 , PRI , COMBO_TERM)
 // ZMK_COMBO(___   , &kp 0              , RM3 RM4 , PRI , COMBO_TERM)
 
-ZMK_COMBO(tilde , &kp TILDE          , RB0 RB1 , PRI , COMBO_TERM)
-ZMK_COMBO(lbrc  , &smart_brc         , RB1 RB2 , PRI , COMBO_TERM)
-ZMK_COMBO(rbrc  , &kp RBRC           , RB2 RB3 , PRI , COMBO_TERM)
+// ZMK_COMBO(tilde , &kp TILDE          , RB0 RB1 , PRI , COMBO_TERM)
+ZMK_COMBO(qmark , &kp QMARK          , RB1 RB2 , PRI , COMBO_TERM)
+ZMK_COMBO(excl  , &kp EXCL           , RB2 RB3 , PRI , COMBO_TERM)
 // ZMK_COMBO(___   , &kp 0              , RB3 RB4 , PRI , COMBO_TERM)
 
 /*                     KEY POSITIONS
