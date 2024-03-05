@@ -93,7 +93,7 @@ ZMK_COMBO(rt    , &kp LS(DOT)        , LT2 LT1 , PRI , COMBO_TERM)
 // ZMK_COMBO(___   , &kp 0              , LB4 LB3 , PRI , COMBO_TERM)
 ZMK_COMBO(lpar  , &smart_par         , LB3 LB2 , PRI , COMBO_TERM)
 ZMK_COMBO(rpar  , &kp RPAR           , LB2 LB1 , PRI , COMBO_TERM)
-ZMK_COMBO(at    , &kp AT             , LB1 LB0 , PRI , COMBO_TERM)
+// ZMK_COMBO(___   , &kp 0              , LB1 LB0 , PRI , COMBO_TERM)
 
 // Horizontal combos - right hand
 
