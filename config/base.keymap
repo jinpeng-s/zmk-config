@@ -80,7 +80,7 @@
         require-prior-idle-ms = <TAP_MS>; \
         bindings = <HOLD>, <TAP>;         \
     )
-MAKE_HRM(leader, &sk, &kp)
+MAKE_HRM(leader, &kp, &kp)
 
 #define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2) \
     ZMK_BEHAVIOR(NAME, mod_morph, \
