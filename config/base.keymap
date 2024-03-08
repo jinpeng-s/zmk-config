@@ -135,6 +135,7 @@ ZMK_BEHAVIOR(smart_thn, tap_dance,
 SIMPLE_MORPH(esc_tab     , SFT , &kp ESC       , &kp TAB)    // Esc             / Tab
 SIMPLE_MORPH(sw_lg       , SFT , &kp LC(SPACE) , &caps_word) // Switch Language / Caps Lock
 SIMPLE_MORPH(bspc_del    , SFT , &kp BSPC      , &kp DEL)    // Backspace       / Delete
+SIMPLE_MORPH(enter_ret   , SFT , &kp ENTER     , &kp RET2)   // Enter           / Return
 
 // 左右终端 纵向
 SIMPLE_MORPH(lpar_rpar   , SFT , &smart_par    , &kp RPAR)   // ( / )  / ()
@@ -197,7 +198,7 @@ ZMK_COMBO(sl    , &sw_lg             , LM4 LM3 , DEF , COMBO_TERM)
 ZMK_COMBO(gt    , &grave_tilde       , LT3 LT2 , DEF , COMBO_TERM)
 ZMK_COMBO(aq    , &aps_quot          , LM3 LM2 , DEF , COMBO_TERM)
 
-ZMK_COMBO(dc    , &dllr_caret        , LT2 LT1 , DEF , COMBO_TERM)
+ZMK_COMBO(dc1   , &dllr_caret        , LT2 LT1 , DEF , COMBO_TERM)
 ZMK_COMBO(ap    , &amper_pipe        , LM2 LM1 , DEF , COMBO_TERM)
 
 // right hand
@@ -206,10 +207,10 @@ ZMK_COMBO(ue    , &under_equal       , RT1 RT2 , DEF , COMBO_TERM)
 ZMK_COMBO(eq    , &excl_qmark        , RM1 RM2 , DEF , COMBO_TERM)
 
 ZMK_COMBO(cs    , &comma_semi        , RT2 RT3 , DEF , COMBO_TERM)
-ZMK_COMBO(dc    , &dot_colon         , RM2 RM3 , DEF , COMBO_TERM)
+ZMK_COMBO(dc2   , &dot_colon         , RM2 RM3 , DEF , COMBO_TERM)
 
 ZMK_COMBO(bd    , &bspc_del          , RT3 RT4 , DEF , COMBO_TERM)
-ZMK_COMBO(ret   , &kp RET            , RM3 RM4 , DEF , COMBO_TERM)
+ZMK_COMBO(er    , &enter_ret         , RM3 RM4 , DEF , COMBO_TERM)
 
 ZMK_LAYER(DEF,
 //╭─────────────╮   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮   ╭─────────────╮                                 ╭─────────────╮   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮   ╭─────────────╮
@@ -218,7 +219,7 @@ ZMK_LAYER(DEF,
 //├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤
 //                        _x_                X                 C                _x_                                                                                 ( / )             [ / ]              { / }             < / >
 //├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤
-   xxx               &hold_sk LGUI A   &hold_sk LALT S   &hold_sk LCTRL D  &hold_sk LSHFT F  &kp T                                           &kp Y             &kp J             &kp K             &kp L             &hold_kp LA(Z) Z  xxx
+   xxx               &hold_sk LGUI A   &hold_sk LALT S   &hold_sk LCTRL D  &hold_sk LSHFT F  &kp T                                           &kp Y             &hold_sk LSHFT J  &kp K             &kp L             &hold_kp LA(Z) Z  xxx
 //                  Switch Language / Caps Lock     ' / "             & / |                                                                                                 ! / ?             . / :              RET
 //├─────────────┤   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┴─────────────┴───┴─────────────┴───┴─────────────╯   ├─────────────┤
 //                                                                              _x_                                                                                 _x_
@@ -359,25 +360,18 @@ ZMK_LAYER(SEC,
 //     bindings = <_UNDO>, <_REDO>;
 // )
 
-ZMK_BEHAVIOR(vol_prev_pp, tap_dance,
-    tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&kp C_PREV>, <&kp C_PP>;
-)
-
-ZMK_BEHAVIOR(vol_dn_mute, tap_dance,
-    tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&kp C_VOL_DN>, <&kp C_MUTE>;
-)
+SIMPLE_MORPH(vol_prev_pp, SFT, &kp C_PREV, &kp C_PP)
+SIMPLE_MORPH(vol_dn_mute, SFT, &kp C_VOL_DN, &kp C_MUTE)
 
 ZMK_LAYER(FUN,
 //╭─────────────╮   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮   ╭─────────────╮                                 ╭─────────────╮   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮   ╭─────────────╮
-   xxx               &kp LG(LS(F))     &kp LA(LS(N1))    &kp LA(LS(N3))    &kp LA(LS(N4))    xxx                                             xxx               &kp C_NEXT        &kp C_VOL_UP      &kp C_BRI_UP      &kp LG(LC(Q))     xxx
+   xxx               &kp LG(LS(SPACE)) _x_               _x_               _x_               xxx                                             xxx               &kp C_NEXT        &kp C_VOL_UP      &kp C_BRI_UP      &kp LG(LC(Q))     xxx
 //├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤
 //├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤
-   xxx               &kp LG(LS(C))     &kp LA(LS(N6))    &kp LA(LS(N2))    &kp LA(LS(N5))    xxx                                             xxx               &vol_prev_pp      &vol_dn_mute      &kp C_BRI_DN      &kp LG(LS(SPACE)) xxx
+   xxx               _x_               _x_               _x_               &kp LG(LS(F))     xxx                                             xxx               &vol_prev_pp      &vol_dn_mute      &kp C_BRI_DN      _x_               xxx
 //├─────────────┤   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┴─────────────┴───┴─────────────┴───┴─────────────╯   ├─────────────┤
 //├─────────────┼───┬─────────────┼───┬─────────────┬───┬─────────────╮   ├─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┤   ╭─────────────┬───┬─────────────┬───┼─────────────┬───┼─────────────┤
-   xxx               xxx               xxx               xxx               _x_               xxx                                             xxx               &caps_word        xxx               xxx               xxx               xxx
+   xxx               xxx               xxx               xxx               &kp LG(LS(C))     xxx                                             xxx               _x_               xxx               xxx               xxx               xxx
 //╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯   ╰─────────────╯   ╰─────────────╯                                 ╰─────────────╯   ╰─────────────╯   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯
 //                                                                        ╭─────────────┬───┬─────────────╮ ╭─────────────╮ ╭─────────────╮ ╭─────────────┬───┬─────────────╮
                                                                            ___               _x_             xxx             xxx             ___               ___
@@ -390,7 +384,7 @@ ZMK_LAYER(FUN,
 
 ZMK_LAYER(TMP,
 //╭─────────────╮   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮   ╭─────────────╮                                 ╭─────────────╮   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮   ╭─────────────╮
-   xxx               _x_               _x_               _x_               _x_               xxx                                             xxx               _x_               _x_               _x_               _x_               xxx
+   xxx               &kp K_APP         _x_               _x_               _x_               xxx                                             xxx               _x_               _x_               _x_               _x_               xxx
 //├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤
 //├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤
    xxx               _x_               _x_               _x_               _x_               xxx                                             xxx               _x_               _x_               _x_               _x_               xxx
@@ -407,35 +401,20 @@ ZMK_LAYER(TMP,
 // ---------- NAV ----------
 //////////////////////////////
 
-ZMK_BEHAVIOR(smart_left, tap_dance,
-    tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&kp LEFT>, <&kp HOME>;
-)
-
-ZMK_BEHAVIOR(smart_down, tap_dance,
-    tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&kp DOWN>,  <&kp PG_DN>;
-)
-
-ZMK_BEHAVIOR(smart_up, tap_dance,
-    tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&kp UP>, <&kp PG_UP>;
-)
-
-ZMK_BEHAVIOR(smart_right, tap_dance,
-    tapping-term-ms = <SHORT_TAP_MS>;
-    bindings = <&kp RIGHT>, <&kp END>;
-)
+SIMPLE_MORPH(left_home  , SFT , &kp LEFT  , &kp HOME)
+SIMPLE_MORPH(down_pg_dn , SFT , &kp DOWN  , &kp PG_DN)
+SIMPLE_MORPH(up_pg_up   , SFT , &kp UP    , &kp PG_UP)
+SIMPLE_MORPH(right_end  , SFT , &kp RIGHT , &kp END)
 
 ZMK_LAYER(NAV,
 //╭─────────────╮   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮   ╭─────────────╮                                 ╭─────────────╮   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┬─────────────╮   ╭─────────────╮
    xxx               _x_               _x_               _x_               _x_               xxx                                             xxx               _x_               _x_               _x_               _x_               xxx
 //├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤
 //├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┼─────────────┼───┼─────────────┼───┼─────────────┤   ├─────────────┤
-   xxx               _x_               _x_               _x_               _x_               xxx                                             xxx               &smart_down       &smart_up         &smart_right      _x_               xxx
+   xxx               _x_               _x_               _x_               _x_               xxx                                             xxx               &down_pg_dn       &up_pg_up         &right_end        _x_               xxx
 //├─────────────┤   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┴─────────────┴───┴─────────────┴───┴─────────────╯   ├─────────────┤
 //├─────────────┼───┬─────────────┼───┬─────────────┬───┬─────────────╮   ├─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┤   ╭─────────────┬───┬─────────────┬───┼─────────────┬───┼─────────────┤
-   xxx               xxx               xxx               xxx               _x_               xxx                                             xxx               &smart_left       xxx               xxx               xxx               xxx
+   xxx               xxx               xxx               xxx               _x_               xxx                                             xxx               &left_home        xxx               xxx               xxx               xxx
 //╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯   ╰─────────────╯   ╰─────────────╯                                 ╰─────────────╯   ╰─────────────╯   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯
 //                                                                        ╭─────────────┬───┬─────────────╮ ╭─────────────╮ ╭─────────────╮ ╭─────────────┬───┬─────────────╮
                                                                            ___               ___             xxx             xxx             ___               _x_
