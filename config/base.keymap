@@ -64,12 +64,12 @@
 };
 
 &sl {
-    release-after-ms = <3000>;
+    release-after-ms = <5000>;
     // quick-release;
 };
 
 &sk {
-    release-after-ms = <3000>;
+    release-after-ms = <5000>;
     // quick-release;
 };
 
@@ -84,84 +84,38 @@
 MAKE_HRM(hold_kp, &kp, &kp)
 MAKE_HRM(hold_sk, &sk, &kp)
 
-#define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2) \
-    ZMK_BEHAVIOR(NAME, mod_morph, \
-        mods = <(MOD_L ## MOD|MOD_R ## MOD)>; \
-        bindings = <BINDING1>, <BINDING2>; \
+#define SIMPLE_DANCE(NAME, BINDING1, BINDING2) \
+    ZMK_BEHAVIOR(NAME, tap_dance,                           \
+        tapping-term-ms = <TAP_MS>;                         \
+        bindings = <BINDING1>, <BINDING2>;                  \
     )
 
-ZMK_BEHAVIOR(_smart_grave, macro,
-    bindings = <&kp GRAVE &kp GRAVE &kp LEFT>;
-)
-ZMK_BEHAVIOR(smart_grave, tap_dance,
-    bindings = <&kp GRAVE>, <&_smart_grave>;
-)
+// SIMPLE_DANCE(esc_tab     ,  &kp ESC       , &kp TAB      ) // Esc             / Tab
+// SIMPLE_DANCE(sw_lg       ,  &kp LC(SPACE) , &caps_word   ) // Switch Language / Caps Lock
+// SIMPLE_DANCE(del_bspc    ,  &kp DEL       , &kp BSPC     ) // Delete          / Backspace
+// SIMPLE_DANCE(ret_enter   ,  &kp RET2      , &kp ENTER    ) // Return          / Enter
 
-ZMK_BEHAVIOR(_smart_aps, macro,
-    bindings = <&kp APOS &kp APOS &kp LEFT>;
-)
-ZMK_BEHAVIOR(smart_aps, tap_dance,
-    bindings = <&kp APOS>, <&_smart_aps>;
-)
+// LEFT
+SIMPLE_DANCE(grave_tilde , &kp GRAVE , &kp TILDE    ) // ` / ~
+SIMPLE_DANCE(dllr_caret  , &kp DLLR  , &kp CARET    ) // $ / ^
+SIMPLE_DANCE(minus_plus  , &kp MINUS , &kp PLUS     ) // - / +
+SIMPLE_DANCE(fslh_star   , &kp FSLH  , &kp STAR     ) // / / *
+SIMPLE_DANCE(under_equal , &kp UNDER , &kp EQUAL    ) // _ / =
+SIMPLE_DANCE(lpar_rpar   , &kp LPAR  , &kp RPAR     ) // ( / )
+SIMPLE_DANCE(lt_gt       , &kp LT    , &kp GT       ) // < / >
 
-ZMK_BEHAVIOR(_smart_apss, macro,
-    bindings = <&kp LS(APOS) &kp LS(APOS) &kp LEFT>;
-)
-ZMK_BEHAVIOR(smart_apss, tap_dance,
-    bindings = <&kp LS(APOS)>, <&_smart_apss>;
-)
+// RIGHT
+SIMPLE_DANCE(amper_pipe  , &kp AMPS  , &kp PIPE     ) // & / |
+SIMPLE_DANCE(apos_aposs  , &kp APOS  , &kp LS(APOS) ) // ' / "
+SIMPLE_DANCE(lbkt_rbkt   , &kp LBKT  , &kp RBKT     ) // [ / ]
+SIMPLE_DANCE(comma_semi  , &kp COMMA , &kp SEMI     ) // , / ;
+SIMPLE_DANCE(dot_colon   , &kp DOT   , &kp COLON    ) // . / :
+SIMPLE_DANCE(excl_qmark  , &kp EXCL  , &kp QMARK    ) // ! / ?
+SIMPLE_DANCE(lbrc_rbrc   , &kp LBRC  , &kp RBRC     ) // { / }
 
-ZMK_BEHAVIOR(_smart_par, macro,
-    bindings = <&kp LPAR &kp RPAR &kp LEFT>;
-)
-ZMK_BEHAVIOR(smart_par, tap_dance,
-    bindings = <&kp LPAR>, <&_smart_par>;
-)
-
-ZMK_BEHAVIOR(_smart_bkt, macro,
-    bindings = <&kp LBKT &kp RBKT &kp LEFT>;
-)
-ZMK_BEHAVIOR(smart_bkt, tap_dance,
-    bindings = <&kp LBKT>, <&_smart_bkt>;
-)
-
-ZMK_BEHAVIOR(_smart_brc, macro,
-    bindings = <&kp LBRC &kp RBRC &kp LEFT>;
-)
-ZMK_BEHAVIOR(smart_brc, tap_dance,
-    bindings = <&kp LBRC>, <&_smart_brc>;
-)
-
-ZMK_BEHAVIOR(_smart_thn, macro,
-    bindings = <&kp LT &kp GT &kp LEFT>;
-)
-ZMK_BEHAVIOR(smart_thn, tap_dance,
-    bindings = <&kp LT>, <&_smart_thn>;
-)
-
-// SIMPLE_MORPH(esc_tab     , SFT , &kp ESC       , &kp TAB      ) // Esc             / Tab
-// SIMPLE_MORPH(sw_lg       , SFT , &kp LC(SPACE) , &caps_word   ) // Switch Language / Caps Lock
-// SIMPLE_MORPH(del_bspc    , SFT , &kp DEL       , &kp BSPC     ) // Delete          / Backspace
-// SIMPLE_MORPH(ret_enter   , SFT , &kp RET2      , &kp ENTER    ) // Return          / Enter
-
-// SIMPLE_MORPH(lpar_rpar   , SFT , &smart_par    , &kp RPAR     ) // ( / ) / ()
-// SIMPLE_MORPH(lbkt_rbkt   , SFT , &smart_bkt    , &kp RBKT     ) // [ / ] / []
-// SIMPLE_MORPH(lbrc_rbrc   , SFT , &smart_brc    , &kp RBRC     ) // { / } / {}
-// SIMPLE_MORPH(lt_gt       , SFT , &smart_thn    , &kp GT       ) // < / > / <>
-
-// SIMPLE_MORPH(grave_tilde , SFT , &smart_grave  , &kp TILDE    ) // ` / ~ / ``
-// SIMPLE_MORPH(aps_quot    , SFT , &smart_aps    , &kp LS(APOS) ) // ' / " / ''
-// SIMPLE_MORPH(minus_plus  , SFT , &kp MINUS     , &kp PLUS     ) // - / +
-// SIMPLE_MORPH(fslh_star   , SFT , &kp FSLH      , &kp STAR     ) // / / *
-// SIMPLE_MORPH(under_equal , SFT , &kp UNDER     , &kp EQUAL    ) // _ / =
-// SIMPLE_MORPH(hash_prcnt  , SFT , &kp HASH      , &kp PRCNT    ) // # / %
-
-// SIMPLE_MORPH(amper_pipe  , SFT , &kp AMPS      , &kp PIPE     ) // & / |
-// SIMPLE_MORPH(dllr_caret  , SFT , &kp DLLR      , &kp CARET    ) // $ / ^
-// SIMPLE_MORPH(comma_semi  , SFT , &kp COMMA     , &kp SEMI     ) // , / ;
-// SIMPLE_MORPH(dot_colon   , SFT , &kp DOT       , &kp COLON    ) // . / :
-// SIMPLE_MORPH(excl_qmark  , SFT , &kp EXCL      , &kp QMARK    ) // ! / ?
-// SIMPLE_MORPH(bslh_AT     , SFT , &kp BSLH      , &kp AT       ) // \ / @
+// T
+SIMPLE_DANCE(hash_prcnt  , &kp HASH  , &kp PRCNT    ) // # / %
+SIMPLE_DANCE(bslh_at     , &kp BSLH  , &kp AT       ) // \ / @
 
 //////////////////////////////
 // DEF
@@ -180,7 +134,7 @@ ZMK_BEHAVIOR(smart_thn, tap_dance,
 // ZMK_COMBO(_     , &kp 0              , RM1 RB1 , DEF , COMBO_TERM)
 
 // ZMK_COMBO(_     , &kp 0              , LH2 LH1 , DEF , COMBO_TERM)
-ZMK_COMBO(v     , &kp V              , RH1 RH2 , DEF , COMBO_TERM)  // test
+// ZMK_COMBO(_     , &kp 0              , RH1 RH2 , DEF , COMBO_TERM)
 
 ////////////////////
 // "-" combos
@@ -198,6 +152,11 @@ ZMK_COMBO(caps  , &caps_word         , LM3 LM2 , DEF , COMBO_TERM)
 ZMK_COMBO(enter , &kp ENTER          , RM2 RM3 , DEF , COMBO_TERM)
 // ZMK_COMBO(_     , &kp 0              , RM3 RM4 , DEF , COMBO_TERM)
 
+ZMK_BEHAVIOR(smart_sym, tap_dance,
+    bindings = <&lt LFT 0>, <&lt RHT 0>;
+    tapping-term-ms = <SHORT_TAP_MS>;
+)
+
 ZMK_LAYER(DEF,
 //╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮                                 ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮
    xxx               &kp Q             &hold_kp LA(V) W  &hold_kp LA(Z) E  &kp R             &kp T                                           &kp Y             &kp U             &kp I             &kp O             &kp P             xxx
@@ -213,7 +172,7 @@ ZMK_LAYER(DEF,
    xxx               &kp Z             &kp X             xxx               &kp V             &kp B                                           &kp N             &kp M             xxx               xxx               xxx               xxx
 //╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯   ╰─────────────╯   ╰─────────────╯                                 ╰─────────────╯   ╰─────────────╯   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯
 //                                                                        ╭─────────────┬───┬─────────────╮ ╭─────────────────────────────╮ ╭─────────────┬───┬─────────────╮
-                                                                           &lt LFT SPACE     &lt NUM 0       xxx                       xxx   &lt FUN 0         &lt RHT C
+                                                                           &lt NUM SPACE     &smart_sym      xxx                       xxx   &lt 0 0           &lt FUN C
 //                                                                                       _|_                                                                V
 //                                                                        ╰─────────────┴───┴─────────────╯ ╰─────────────────────────────╯ ╰─────────────┴───┴─────────────╯
 )
@@ -241,23 +200,20 @@ ZMK_LAYER(NUM,
 // LFT
 //////////////////////////////
 
-MAKE_HRM(hold_par, &kp, &smart_par)
-MAKE_HRM(hold_bkt, &kp, &smart_bkt)
-
 ZMK_LAYER(LFT,
 //╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮                                 ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮
-   xxx               xxx               &smart_grave      &kp DLLR          xxx               xxx                                             xxx               xxx               &kp AMPS          &smart_aps        xxx               xxx
+   xxx               xxx               &grave_tilde      &dllr_caret       xxx               xxx                                             xxx               xxx               &amper_pipe       &apos_aposs       xxx               xxx
 //                                                                                                                                                                                                     э / Э
 //├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤                                 ├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤
 //├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤                                 ├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤
-   xxx               &hold_sk LGUI MINUS &hold_sk LALT FSLH &hold_sk LCTRL UNDER &hold_par LSHFT 0 xxx                                       xxx               &hold_bkt LSHFT 0 &hold_sk LCTRL COMMA &hold_sk LALT DOT &hold_sk LGUI EXCL xxx
+   xxx               &minus_plus       &fslh_star        &under_equal      &lpar_rpar        xxx                                             xxx               &lbkt_rbkt        &comma_semi       &dot_colon        &excl_qmark       xxx
 //                                                                                                                                                                 х / Х             б / Б             ю / Ю
 //├─────────────┤   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┴─────────────┴───┴─────────────┴───┴─────────────╯   ├─────────────┤
 //├─────────────┼───┬─────────────┬───┬─────────────┬───┬─────────────╮   ├─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┤   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┼─────────────┤
-   xxx               xxx               xxx               xxx               &smart_thn        xxx                                             xxx               &smart_brc        xxx               xxx               xxx               xxx
+   xxx               xxx               xxx               xxx               &lt_gt            xxx                                             xxx               &lbrc_rbrc        xxx               xxx               xxx               xxx
 //╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯   ╰─────────────╯   ╰─────────────╯                                 ╰─────────────╯   ╰─────────────╯   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯
 //                                                                        ╭─────────────┬───┬─────────────╮ ╭─────────────────────────────╮ ╭─────────────┬───┬─────────────╮
-                                                                           ___               _x_             xxx                       xxx   &kp PRCNT         &kp BSLH
+                                                                           ___               _x_             xxx                       xxx   &hash_prcnt       &bslh_at
 //                                                                                                                                                                   ё
 //                                                                        ╰─────────────┴───┴─────────────╯ ╰─────────────────────────────╯ ╰─────────────┴───┴─────────────╯
 )
@@ -268,7 +224,7 @@ ZMK_LAYER(LFT,
 
 ZMK_LAYER(RHT,
 //╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮                                 ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮
-   xxx               xxx               &kp TILDE         &kp CARET         xxx               xxx                                             xxx               xxx               &kp PIPE          &smart_apss       xxx               xxx
+   xxx               xxx               &kp TILDE         &kp CARET         xxx               xxx                                             xxx               xxx               &kp PIPE          &kp LS(APOS)      xxx               xxx
 //├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤                                 ├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤
 //├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤                                 ├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤
    xxx               &hold_sk LGUI PLUS &hold_sk LALT STAR &hold_sk LCTRL EQUAL &hold_sk LSHFT RPAR xxx                                      xxx               &hold_sk LSHFT RBKT &hold_sk LCTRL SEMI &hold_sk LALT COLON &hold_sk LGUI QMARK xxx
@@ -286,13 +242,13 @@ ZMK_LAYER(RHT,
 // FUN
 //////////////////////////////
 
-SIMPLE_MORPH(vol_prev_pp, SFT, &kp C_PREV, &kp C_PP)
-SIMPLE_MORPH(vol_dn_mute, SFT, &kp C_VOL_DN, &kp C_MUTE)
+SIMPLE_DANCE(vol_prev_pp , &kp C_PREV   , &kp C_PP)
+SIMPLE_DANCE(vol_dn_mute , &kp C_VOL_DN , &kp C_MUTE)
 
-SIMPLE_MORPH(left_home  , SFT , &kp LEFT  , &kp HOME)
-SIMPLE_MORPH(down_pg_dn , SFT , &kp DOWN  , &kp PG_DN)
-SIMPLE_MORPH(up_pg_up   , SFT , &kp UP    , &kp PG_UP)
-SIMPLE_MORPH(right_end  , SFT , &kp RIGHT , &kp END)
+SIMPLE_DANCE(left_home  , &kp LEFT  , &kp HOME)
+SIMPLE_DANCE(down_pg_dn , &kp DOWN  , &kp PG_DN)
+SIMPLE_DANCE(up_pg_up   , &kp UP    , &kp PG_UP)
+SIMPLE_DANCE(right_end  , &kp RIGHT , &kp END)
 
 ZMK_LAYER(FUN,
 //╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮                                 ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮
@@ -392,4 +348,53 @@ ZMK_LAYER(BLU,
 // ZMK_BEHAVIOR(smart_9, mod_morph,
 //     bindings = <&kp N9>, <&kp F9>;
 //     mods = <(MOD_LSFT)>;
+// )
+//
+// ZMK_BEHAVIOR(_smart_grave, macro,
+//     bindings = <&kp GRAVE &kp GRAVE &kp LEFT>;
+// )
+// ZMK_BEHAVIOR(smart_grave, tap_dance,
+//     bindings = <&kp GRAVE>, <&_smart_grave>;
+// )
+//
+// ZMK_BEHAVIOR(_smart_aps, macro,
+//     bindings = <&kp APOS &kp APOS &kp LEFT>;
+// )
+// ZMK_BEHAVIOR(smart_aps, tap_dance,
+//     bindings = <&kp APOS>, <&_smart_aps>;
+// )
+//
+// ZMK_BEHAVIOR(_smart_apss, macro,
+//     bindings = <&kp LS(APOS) &kp LS(APOS) &kp LEFT>;
+// )
+// ZMK_BEHAVIOR(smart_apss, tap_dance,
+//     bindings = <&kp LS(APOS)>, <&_smart_apss>;
+// )
+//
+// ZMK_BEHAVIOR(_smart_par, macro,
+//     bindings = <&kp LPAR &kp RPAR &kp LEFT>;
+// )
+// ZMK_BEHAVIOR(smart_par, tap_dance,
+//     bindings = <&kp LPAR>, <&_smart_par>;
+// )
+//
+// ZMK_BEHAVIOR(_smart_bkt, macro,
+//     bindings = <&kp LBKT &kp RBKT &kp LEFT>;
+// )
+// ZMK_BEHAVIOR(smart_bkt, tap_dance,
+//     bindings = <&kp LBKT>, <&_smart_bkt>;
+// )
+//
+// ZMK_BEHAVIOR(_smart_brc, macro,
+//     bindings = <&kp LBRC &kp RBRC &kp LEFT>;
+// )
+// ZMK_BEHAVIOR(smart_brc, tap_dance,
+//     bindings = <&kp LBRC>, <&_smart_brc>;
+// )
+//
+// ZMK_BEHAVIOR(_smart_thn, macro,
+//     bindings = <&kp LT &kp GT &kp LEFT>;
+// )
+// ZMK_BEHAVIOR(smart_thn, tap_dance,
+//     bindings = <&kp LT>, <&_smart_thn>;
 // )
