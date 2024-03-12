@@ -84,9 +84,9 @@ MAKE_HRM(hold_kp, &kp, &kp)
 MAKE_HRM(hold_sk, &sk, &kp)
 
 #define SIMPLE_DANCE(NAME, BINDING1, BINDING2) \
-    ZMK_BEHAVIOR(NAME, tap_dance,                           \
-        tapping-term-ms = <TAP_MS>;                         \
-        bindings = <BINDING1>, <BINDING2>;                  \
+    ZMK_BEHAVIOR(NAME, tap_dance,              \
+        tapping-term-ms = <TAP_MS>;            \
+        bindings = <BINDING1>, <BINDING2>;     \
     )
 
 // SIMPLE_DANCE(esc_tab     ,  &kp ESC       , &kp TAB      ) // Esc             / Tab
@@ -95,22 +95,26 @@ MAKE_HRM(hold_sk, &sk, &kp)
 // SIMPLE_DANCE(ret_enter   ,  &kp RET2      , &kp ENTER    ) // Return          / Enter
 
 // LEFT
+SIMPLE_DANCE(lt_gt       , &kp LT    , &kp GT       ) // < / >
+SIMPLE_DANCE(lpar_rpar   , &kp LPAR  , &kp RPAR     ) // ( / )
+
 SIMPLE_DANCE(grave_tilde , &kp GRAVE , &kp TILDE    ) // ` / ~
-SIMPLE_DANCE(dllr_caret  , &kp DLLR  , &kp CARET    ) // $ / ^
 SIMPLE_DANCE(minus_plus  , &kp MINUS , &kp PLUS     ) // - / +
 SIMPLE_DANCE(fslh_star   , &kp FSLH  , &kp STAR     ) // / / *
 SIMPLE_DANCE(under_equal , &kp UNDER , &kp EQUAL    ) // _ / =
-SIMPLE_DANCE(lpar_rpar   , &kp LPAR  , &kp RPAR     ) // ( / )
-SIMPLE_DANCE(lt_gt       , &kp LT    , &kp GT       ) // < / >
+
+SIMPLE_DANCE(dllr_caret  , &kp DLLR  , &kp CARET    ) // $ / ^
 
 // RIGHT
-SIMPLE_DANCE(amper_pipe  , &kp AMPS  , &kp PIPE     ) // & / |
-SIMPLE_DANCE(apos_aposs  , &kp APOS  , &kp LS(APOS) ) // ' / "
 SIMPLE_DANCE(lbkt_rbkt   , &kp LBKT  , &kp RBKT     ) // [ / ]
+SIMPLE_DANCE(lbrc_rbrc   , &kp LBRC  , &kp RBRC     ) // { / }
+
+SIMPLE_DANCE(apos_aposs  , &kp APOS  , &kp LS(APOS) ) // ' / "
 SIMPLE_DANCE(comma_semi  , &kp COMMA , &kp SEMI     ) // , / ;
 SIMPLE_DANCE(dot_colon   , &kp DOT   , &kp COLON    ) // . / :
 SIMPLE_DANCE(excl_qmark  , &kp EXCL  , &kp QMARK    ) // ! / ?
-SIMPLE_DANCE(lbrc_rbrc   , &kp LBRC  , &kp RBRC     ) // { / }
+
+SIMPLE_DANCE(amps_pipe   , &kp AMPS  , &kp PIPE     ) // & / |
 
 // T
 SIMPLE_DANCE(hash_prcnt  , &kp HASH  , &kp PRCNT    ) // # / %
@@ -175,26 +179,27 @@ ZMK_LAYER(DEF,
 // SYM
 //////////////////////////////
 
-MAKE_HRM(hm_minus_plus  , &kp , &minus_plus )
-MAKE_HRM(hm_fslh_star   , &kp , &fslh_star  )
-MAKE_HRM(hm_under_equal , &kp , &under_equal)
-MAKE_HRM(hm_lpar_rpar   , &kp , &lpar_rpar  )
-MAKE_HRM(hm_lbkt_rbkt   , &kp , &lbkt_rbkt  )
-MAKE_HRM(hm_comma_semi  , &kp , &comma_semi )
-MAKE_HRM(hm_dot_colon   , &kp , &dot_colon  )
-MAKE_HRM(hm_excl_qmark  , &kp , &excl_qmark )
+MAKE_HRM(hm_g_t , &sk , &grave_tilde)
+MAKE_HRM(hm_m_p , &sk , &minus_plus )
+MAKE_HRM(hm_f_s , &sk , &fslh_star  )
+MAKE_HRM(hm_u_e , &sk , &under_equal)
+
+MAKE_HRM(hm_a_a , &sk , &apos_aposs )
+MAKE_HRM(hm_c_s , &sk , &comma_semi )
+MAKE_HRM(hm_d_c , &sk , &dot_colon  )
+MAKE_HRM(hm_e_q , &sk , &excl_qmark )
 
 ZMK_LAYER(SYM,
 //╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮                                 ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮
-   xxx               xxx               &grave_tilde      &dllr_caret       xxx               xxx                                             xxx               xxx               &amper_pipe       &apos_aposs       xxx               xxx
-//                                                                                                                                                                                                       э
+   xxx               xxx               &lt_gt            &lpar_rpar        xxx               xxx                                             xxx               xxx               &lbkt_rbkt        &lbrc_rbrc        xxx               xxx
+//                                                                                                                                                                                    х / ъ
 //├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤                                 ├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤
 //├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤                                 ├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤
-   xxx               &hm_minus_plus LGUI 0 &hm_fslh_star LALT 0 &hm_under_equal LCTRL 0 &hm_lpar_rpar LSHFT 0 xxx                            xxx               &hm_lbkt_rbkt LSHFT 0 &hm_comma_semi LCTRL 0 &hm_dot_colon LALT 0 &hm_excl_qmark LGUI 0 xxx
-//                                                                                                                                                                 х / ъ             б / ж               ю
+   xxx               &hm_g_t LGUI 0    &hm_m_p LALT 0    &hm_f_s LCTRL 0   &hm_u_e LSHFT 0   xxx                                             xxx               &hm_a_a LSHFT 0   &hm_c_s LCTRL 0   &hm_d_c LALT 0    &hm_e_q LGUI 0    xxx
+//                                                                                                                                                                   э               б / ж               ю
 //├─────────────┤   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┴─────────────┴───┴─────────────┴───┴─────────────╯   ├─────────────┤
 //├─────────────┼───┬─────────────┬───┬─────────────┬───┬─────────────╮   ├─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┤   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┼─────────────┤
-   xxx               xxx               xxx               xxx               &lt_gt            xxx                                             xxx               &lbrc_rbrc        xxx               xxx               xxx               xxx
+   xxx               xxx               xxx               xxx               &dllr_caret       xxx                                             xxx               &amps_pipe        xxx               xxx               xxx               xxx
 //╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯   ╰─────────────╯   ╰─────────────╯                                 ╰─────────────╯   ╰─────────────╯   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯
 //                                                                        ╭─────────────┬───┬─────────────╮ ╭─────────────────────────────╮ ╭─────────────┬───┬─────────────╮
                                                                            ___               _x_             xxx                       xxx   &hash_prcnt       &bslh_at
