@@ -110,7 +110,7 @@ SIMPLE_DANCE(dot_colon   , &kp DOT   , &kp COLON    ) // . (ю) / :
 SIMPLE_DANCE(lt_gt       , &kp LT    , &kp GT       ) // < / >
 SIMPLE_DANCE(lpar_rpar   , &kp LPAR  , &kp RPAR     ) // ( / )
 
-SIMPLE_DANCE(grave_tilde , &kp GRAVE , &kp TILDE    ) // ` / ~
+SIMPLE_DANCE(tilde_grave , &kp TILDE , &kp GRAVE    ) // ~ / `
 SIMPLE_DANCE(minus_plus  , &kp MINUS , &kp PLUS     ) // - / +
 SIMPLE_DANCE(fslh_star   , &kp FSLH  , &kp STAR     ) // / / *
 SIMPLE_DANCE(under_equal , &kp UNDER , &kp EQUAL    ) // _ / =
@@ -190,7 +190,7 @@ ZMK_LAYER(DEF,
 // SYM
 //////////////////////////////
 
-MAKE_HRM(hm_g_t , &sk , &grave_tilde)
+MAKE_HRM(hm_t_g , &sk , &tilde_grave)
 MAKE_HRM(hm_m_p , &sk , &minus_plus )
 MAKE_HRM(hm_f_s , &sk , &fslh_star  )
 MAKE_HRM(hm_u_e , &sk , &under_equal)
@@ -206,7 +206,7 @@ ZMK_LAYER(SYM,
 //                                                                                                                                                                                    х / ъ
 //├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤                                 ├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤
 //├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤                                 ├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤
-   xxx               &hm_g_t LGUI 0    &hm_m_p LALT 0    &hm_f_s LCTRL 0   &hm_u_e LSHFT 0   xxx                                             xxx               &hm_a_a LSHFT 0   &hm_d_c LCTRL 0   &hm_a_p LALT 0    &hm_e_q LGUI 0    xxx
+   xxx               &hm_t_g LGUI 0    &hm_m_p LALT 0    &hm_f_s LCTRL 0   &hm_u_e LSHFT 0   xxx                                             xxx               &hm_a_a LSHFT 0   &hm_d_c LCTRL 0   &hm_a_p LALT 0    &hm_e_q LGUI 0    xxx
 //                                              , (б) / ; (ж)                                                                                                        э                    . (ю) / :
 //├─────────────┤   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┴─────────────┴───┴─────────────┴───┴─────────────╯   ├─────────────┤
 //├─────────────┼───┬─────────────┬───┬─────────────┬───┬─────────────╮   ├─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┤   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┼─────────────┤
