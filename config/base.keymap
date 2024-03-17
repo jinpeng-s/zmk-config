@@ -136,16 +136,19 @@ SIMPLE_DANCE(bslh_at     , &kp BSLH  , &kp AT       ) // \ (ё) / @
 // "|" combos
 ////////////////////
 
-// ZMK_COMBO(_     , &kp 0              , LT3 LM3 , DEF , COMBO_TERM)
-// ZMK_COMBO(_     , &kp 0              , LT2 LM2 , DEF , COMBO_TERM)
-// ZMK_COMBO(_     , &kp 0              , RT2 RM2 , DEF , COMBO_TERM)
-// ZMK_COMBO(_     , &kp 0              , RT3 RM3 , DEF , COMBO_TERM)
+// 启用这些按键仅仅是为了设置快捷键
+// 请不要在打字的时候使用他们
 
-// ZMK_COMBO(_     , &kp 0              , LM1 LB1 , DEF , COMBO_TERM)
-// ZMK_COMBO(_     , &kp 0              , RM1 RB1 , DEF , COMBO_TERM)
+ZMK_COMBO(r     , &kp R              , LT3 LM3 , DEF , COMBO_TERM)
+ZMK_COMBO(t     , &kp T              , LT2 LM2 , DEF , COMBO_TERM)
+ZMK_COMBO(y     , &kp Y              , RT2 RM2 , DEF , COMBO_TERM)
+ZMK_COMBO(u     , &kp U              , RT3 RM3 , DEF , COMBO_TERM)
 
-// ZMK_COMBO(_     , &kp 0              , LH2 LH1 , DEF , COMBO_TERM)
-// ZMK_COMBO(_     , &kp 0              , RH1 RH2 , DEF , COMBO_TERM)
+ZMK_COMBO(g     , &kp G              , LM1 LB1 , DEF , COMBO_TERM)
+ZMK_COMBO(h     , &kp H              , RM1 RB1 , DEF , COMBO_TERM)
+
+ZMK_COMBO(b     , &kp B              , LH2 LH1 , DEF , COMBO_TERM)
+ZMK_COMBO(n     , &kp N              , RH1 RH2 , DEF , COMBO_TERM)
 
 ////////////////////
 // "-" combos
@@ -171,18 +174,18 @@ ZMK_LAYER(DEF,
    xxx               &kp Q             &hold_kp LA(V) W  &hold_kp LA(Z) E  &kp R             &kp T                                           &kp Y             &kp U             &kp I             &kp O             &kp P             xxx
 //                                                   Esc                                                                                                                                    Backspace
 //├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤                                 ├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤
-//                                          _|_               _|_                                                                                                                     _|_               _|_
+//                                          _R_               _T_                                                                                                                     _Y_               _U_
 //├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤                                 ├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤
    xxx               &hold_sk LGUI A   &hold_sk LALT S   &hold_sk LCTRL D  &hold_sk LSHFT F  &kp G                                           &kp H             &hold_sk LSHFT J  &hold_sk LCTRL K  &hold_sk LALT L   &hold_sk LGUI 0   xxx
 //                                 _-_               TAB               _-_                                                                                                   _-_              Return             _-_
 //├─────────────┤   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┴─────────────┴───┴─────────────┴───┴─────────────╯   ├─────────────┤
-//                                                                              _|_                                                                                 _|_
+//                                                                              _G_                                                                                 _H_
 //├─────────────┼───┬─────────────┬───┬─────────────┬───┬─────────────╮   ├─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┤   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┼─────────────┤
    xxx               &kp Z             &kp X             xxx               &kp V             &kp B                                           &kp N             &kp M             xxx               xxx               xxx               xxx
 //╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯   ╰─────────────╯   ╰─────────────╯                                 ╰─────────────╯   ╰─────────────╯   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯
 //                                                                        ╭─────────────┬───┬─────────────╮ ╭─────────────────────────────╮ ╭─────────────┬───┬─────────────╮
                                                                            &lt SYM SPACE     &lt NUM C       xxx                       xxx   &lt TMP 0         &lt FUN 0
-//                                                                                       _|_                                                               _|_
+//                                                                                       _B_                                                               _N_
 //                                                                        ╰─────────────┴───┴─────────────╯ ╰─────────────────────────────╯ ╰─────────────┴───┴─────────────╯
 )
 
