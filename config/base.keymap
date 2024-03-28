@@ -131,12 +131,13 @@ SIMPLE_DANCE(bslh_at     , &kp BSLH  , &kp AT       ) // \ (ё) / @
 // DEF
 //////////////////////////////
 
+ZMK_COMBO(q     , &kp Q              , LM4 LM3 , DEF , COMBO_TERM)
+ZMK_COMBO(c_w   , &caps_word         , LM1 RM1 , DEF , COMBO_TERM)
+ZMK_COMBO(k_r   , &key_repeat        , LB1 RB1 , DEF , COMBO_TERM)
+
 ////////////////////
 // "|" combos
 ////////////////////
-
-// 启用这些按键仅仅是为了设置快捷键
-// 请不要在打字的时候使用他们
 
 ZMK_COMBO(r     , &kp R              , LT3 LM3 , DEF , COMBO_TERM)
 ZMK_COMBO(t     , &kp T              , LT2 LM2 , DEF , COMBO_TERM)
@@ -156,26 +157,16 @@ ZMK_COMBO(n     , &kp N              , RH1 RH2 , DEF , COMBO_TERM)
 // 1st row
 
 ZMK_COMBO(bspc  , &kp BSPC           , RT2 RT3 , DEF SYM NUM FUN , COMBO_TERM)
+ZMK_COMBO(esc   , &kp ESC            , LT3 LT2 , DEF SYM NUM FUN , COMBO_TERM)
 
 // 2nd row
 
-ZMK_COMBO(esc   , &kp ESC            , LT3 LT2 , DEF SYM NUM FUN , COMBO_TERM)
-// ZMK_COMBO(_     , &kp 0              , LM4 LM3 , DEF SYM NUM FUN , COMBO_TERM)
+ZMK_COMBO(_     , &kp 0              , LM4 LM3 , DEF SYM NUM FUN , COMBO_TERM)
 ZMK_COMBO(tab   , &kp TAB            , LM3 LM2 , DEF SYM NUM FUN , COMBO_TERM)
-// ZMK_COMBO(_     , &kp 0              , LM2 LM1 , DEF SYM NUM FUN , COMBO_TERM)
-// ZMK_COMBO(_     , &kp 0              , RM1 RM2 , DEF SYM NUM FUN , COMBO_TERM)
+ZMK_COMBO(_     , &kp 0              , LM2 LM1 , DEF SYM NUM FUN , COMBO_TERM)
+ZMK_COMBO(_     , &kp 0              , RM1 RM2 , DEF SYM NUM FUN , COMBO_TERM)
 ZMK_COMBO(enter , &kp ENTER          , RM2 RM3 , DEF SYM NUM FUN , COMBO_TERM)
-// ZMK_COMBO(_     , &kp 0              , RM3 RM4 , DEF SYM NUM FUN , COMBO_TERM)
-
-ZMK_COMBO(q     , &kp Q              , LM4 LM3 , DEF SYM NUM FUN , COMBO_TERM)
-
-ZMK_COMBO(c_w   , &caps_word         , LM1 RM1 , DEF , COMBO_TERM)
-ZMK_COMBO(k_r   , &key_repeat        , LB1 RB1 , DEF , COMBO_TERM)
-
-// &num_word {
-//     layers = <NUM>;
-//     continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
-// };
+ZMK_COMBO(_     , &kp 0              , RM3 RM4 , DEF SYM NUM FUN , COMBO_TERM)
 
 ZMK_LAYER(DEF,
 //╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮                                 ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮
@@ -211,22 +202,57 @@ MAKE_HRM(hm_d_c , &sk , &dllr_caret )
 MAKE_HRM(hm_a_p , &sk , &amps_pipe  )
 MAKE_HRM(hm_e_q , &sk , &excl_qmark )
 
+////////////////////
+// "|" combos
+////////////////////
+
+ZMK_COMBO(_     , &kp 0              , LT3 LM3 , SYM , COMBO_TERM)
+ZMK_COMBO(_     , &kp 0              , LT2 LM2 , SYM , COMBO_TERM)
+ZMK_COMBO(_     , &kp 0              , RT2 RM2 , SYM , COMBO_TERM)
+ZMK_COMBO(_     , &kp 0              , RT3 RM3 , SYM , COMBO_TERM)
+
+ZMK_COMBO(_     , &kp 0              , LM1 LB1 , SYM , COMBO_TERM)
+ZMK_COMBO(_     , &kp 0              , RM1 RB1 , SYM , COMBO_TERM)
+
+ZMK_COMBO(_     , &kp 0              , LH2 LH1 , SYM , COMBO_TERM)
+ZMK_COMBO(_     , &kp 0              , RH1 RH2 , SYM , COMBO_TERM)
+
+////////////////////
+// "-" combos
+////////////////////
+
+// 1st row
+
+ZMK_COMBO(bspc  , &kp BSPC           , RT2 RT3 , SYM , COMBO_TERM)
+ZMK_COMBO(esc   , &kp ESC            , LT3 LT2 , SYM , COMBO_TERM)
+
+// 2nd row
+
+ZMK_COMBO(_     , &kp 0              , LM4 LM3 , SYM , COMBO_TERM)
+ZMK_COMBO(tab   , &kp TAB            , LM3 LM2 , SYM , COMBO_TERM)
+ZMK_COMBO(_     , &kp 0              , LM2 LM1 , SYM , COMBO_TERM)
+ZMK_COMBO(_     , &kp 0              , RM1 RM2 , SYM , COMBO_TERM)
+ZMK_COMBO(enter , &kp ENTER          , RM2 RM3 , SYM , COMBO_TERM)
+ZMK_COMBO(_     , &kp 0              , RM3 RM4 , SYM , COMBO_TERM)
+
 ZMK_LAYER(SYM,
 //╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮                                 ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮
    xxx               xxx               &lt_gt            &lpar_rpar        xxx               xxx                                             xxx               xxx               &lbkt_rbkt        &lbrc_rbrc        xxx               xxx
-//                                                                                                                                                                                    х / ъ
+//                                                   _-_                                                                                                                              х / ъ    _-_
 //├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤                                 ├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤
+//                                          _|_               _|_                                                                                                                     _|_               _|_
 //├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤                                 ├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤
    xxx               &hm_t_g LGUI 0    &hm_m_p LALT 0    &hm_f_s LCTRL 0   &hm_u_e LSHFT 0   xxx                                             xxx               &hm_a_a LSHFT 0   &hm_d_c LCTRL 0   &hm_a_p LALT 0    &hm_e_q LGUI 0    xxx
-//                                                                                                                                                                   э
+//                                 _-_               _-_               _-_                                                                                           э       _-_               _-_               _-_
 //├─────────────┤   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┴─────────────┴───┴─────────────┴───┴─────────────╯   ├─────────────┤
+//                                                                              _|_                                                                                 _|_
 //├─────────────┼───┬─────────────┬───┬─────────────┬───┬─────────────╮   ├─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┤   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┼─────────────┤
    xxx               xxx               xxx               xxx               &hash_prcnt       xxx                                             xxx               &bslh_at          xxx               xxx               xxx               xxx
 //                                                                                                                                                                   ё
 //╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯   ╰─────────────╯   ╰─────────────╯                                 ╰─────────────╯   ╰─────────────╯   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯
 //                                                                        ╭─────────────┬───┬─────────────╮ ╭─────────────────────────────╮ ╭─────────────┬───┬─────────────╮
                                                                            ___               ___             xxx                       xxx   &comma_semi       &dot_colon
-//                                                                                                                                               б / ж               ю
+//                                                                                       _-_                                                     б / ж     _-_       ю
 //                                                                        ╰─────────────┴───┴─────────────╯ ╰─────────────────────────────╯ ╰─────────────┴───┴─────────────╯
 )
 
