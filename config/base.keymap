@@ -91,34 +91,34 @@ MAKE_HRM(hold_sl, &sl, &kp)
 // DEF
 //////////////////////////////
 
-// //      NAME        , TAP_ACT , TAP      , TAPTAP_ACT , TAPTAP
-// TAP_TAP(a           , kp      , A        , kp         , LS(A)  ) // a / A
-// TAP_TAP(b           , kp      , B        , kp         , LS(B)  ) // b / B
-// TAP_TAP(c           , kp      , C        , kp         , LS(C)  ) // c / C
-// TAP_TAP(d           , kp      , D        , kp         , LS(D)  ) // d / D
-// TAP_TAP(e           , kp      , E        , kp         , LS(E)  ) // e / E
-// TAP_TAP(f           , kp      , F        , kp         , LS(F)  ) // f / F
-// TAP_TAP(g           , kp      , G        , kp         , LS(G)  ) // g / G
-// TAP_TAP(h           , kp      , H        , kp         , LS(H)  ) // h / H
-// TAP_TAP(i           , kp      , I        , kp         , LS(I)  ) // i / I
-// TAP_TAP(j           , kp      , J        , kp         , LS(J)  ) // j / J
-// TAP_TAP(k           , kp      , K        , kp         , LS(K)  ) // k / K
-// TAP_TAP(l           , kp      , L        , kp         , LS(L)  ) // l / L
-// TAP_TAP(m           , kp      , M        , kp         , LS(M)  ) // m / M
-// TAP_TAP(n           , kp      , N        , kp         , LS(N)  ) // n / N
-// TAP_TAP(o           , kp      , O        , kp         , LS(O)  ) // o / O
-// TAP_TAP(p           , kp      , P        , kp         , LS(P)  ) // p / P
-// TAP_TAP(q           , kp      , Q        , kp         , LS(Q)  ) // q / Q
-// TAP_TAP(r           , kp      , R        , kp         , LS(R)  ) // r / R
-// TAP_TAP(s           , kp      , S        , kp         , LS(S)  ) // s / S
-// TAP_TAP(t           , kp      , T        , kp         , LS(T)  ) // t / T
-// TAP_TAP(u           , kp      , U        , kp         , LS(U)  ) // u / U
-// TAP_TAP(v           , kp      , V        , kp         , LS(V)  ) // v / V
-// TAP_TAP(w           , kp      , W        , kp         , LS(W)  ) // w / W
-// TAP_TAP(x           , kp      , X        , kp         , LS(X)  ) // x / X
-// TAP_TAP(y           , kp      , Y        , kp         , LS(Y)  ) // y / Y
-// TAP_TAP(z           , kp      , Z        , kp         , LS(Z)  ) // z / Z
-// TAP_TAP(space       , kp      , SPACE    , kp         , 0      )
+//      NAME        , TAP_ACT , TAP      , TAPTAP_ACT , TAPTAP
+TAP_TAP(a           , kp      , A        , kp         , LS(A)  ) // a / A
+TAP_TAP(b           , kp      , B        , kp         , LS(B)  ) // b / B
+TAP_TAP(c           , kp      , C        , kp         , LS(C)  ) // c / C
+TAP_TAP(d           , kp      , D        , kp         , LS(D)  ) // d / D
+TAP_TAP(e           , kp      , E        , kp         , LS(E)  ) // e / E
+TAP_TAP(f           , kp      , F        , kp         , LS(F)  ) // f / F
+TAP_TAP(g           , kp      , G        , kp         , LS(G)  ) // g / G
+TAP_TAP(h           , kp      , H        , kp         , LS(H)  ) // h / H
+TAP_TAP(i           , kp      , I        , kp         , LS(I)  ) // i / I
+TAP_TAP(j           , kp      , J        , kp         , LS(J)  ) // j / J
+TAP_TAP(k           , kp      , K        , kp         , LS(K)  ) // k / K
+TAP_TAP(l           , kp      , L        , kp         , LS(L)  ) // l / L
+TAP_TAP(m           , kp      , M        , kp         , LS(M)  ) // m / M
+TAP_TAP(n           , kp      , N        , kp         , LS(N)  ) // n / N
+TAP_TAP(o           , kp      , O        , kp         , LS(O)  ) // o / O
+TAP_TAP(p           , kp      , P        , kp         , LS(P)  ) // p / P
+TAP_TAP(q           , kp      , Q        , kp         , LS(Q)  ) // q / Q
+TAP_TAP(r           , kp      , R        , kp         , LS(R)  ) // r / R
+TAP_TAP(s           , kp      , S        , kp         , LS(S)  ) // s / S
+TAP_TAP(t           , kp      , T        , kp         , LS(T)  ) // t / T
+TAP_TAP(u           , kp      , U        , kp         , LS(U)  ) // u / U
+TAP_TAP(v           , kp      , V        , kp         , LS(V)  ) // v / V
+TAP_TAP(w           , kp      , W        , kp         , LS(W)  ) // w / W
+TAP_TAP(x           , kp      , X        , kp         , LS(X)  ) // x / X
+TAP_TAP(y           , kp      , Y        , kp         , LS(Y)  ) // y / Y
+TAP_TAP(z           , kp      , Z        , kp         , LS(Z)  ) // z / Z
+TAP_TAP(space       , kp      , SPACE    , kp         , 0      )
 
 ////////////////////
 // combos
@@ -142,16 +142,16 @@ ZMK_COMBO(enter       , &kp ENTER           , RH1 RH2 , DEF , COMBO_TERM)
 
 ZMK_LAYER(DEF,
 //╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮                                 ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────┬───┬─────────────╮
-   xxx               xxx               &kp W             &kp E             &kp R             &kp T                                           &kp Y             &kp U             &kp I             &kp O             xxx               xxx
+   xxx               xxx               &w                &e                &r                &t                                              &y                &u                &i                &o                xxx               xxx
 //                                                    Q
 //├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤                                 ├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤
 //                                          _R_               _T_                                                                                                                     _Y_               _U_
 //├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤                                 ├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤
-   xxx               &hold_sk LGUI A   &hold_sk LALT S   &hold_sk LCTRL D  &hold_sk LSHFT F  &kp G                                           &kp H             &hold_sk LSHFT J  &hold_sk LCTRL K  &hold_sk LALT L   &hold_sk LGUI P   xxx
+   xxx               &hold_sk LGUI A   &hold_sk LALT S   &hold_sk LCTRL D  &hold_sk LSHFT F  &g                                              &h                &hold_sk LSHFT J  &hold_sk LCTRL K  &hold_sk LALT L   &hold_sk LGUI P   xxx
 //├─────────────┤   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┴─────────────┴───┴─────────────┴───┴─────────────╯   ├─────────────┤
 //                                                                              _G_                                                                                 _H_
 //├─────────────┼───┬─────────────┬───┬─────────────┬───┬─────────────╮   ├─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┤   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┼─────────────┤
-   xxx               &kp Z             &kp X             xxx               &kp V             &kp B                                           &kp N             &kp M             xxx               xxx               xxx               xxx
+   xxx               &z                &x                xxx               &v                &b                                              &n                &m                xxx               xxx               xxx               xxx
 //╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯   ╰─────────────╯   ╰─────────────╯                                 ╰─────────────╯   ╰─────────────╯   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯
 //                                                                              ESC                                                                              BACKSPACE
 //                                                                        ╭─────────────┬───┬─────────────╮ ╭─────────────────────────────╮ ╭─────────────┬───┬─────────────╮
