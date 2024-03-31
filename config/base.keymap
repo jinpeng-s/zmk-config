@@ -56,15 +56,18 @@
         bindings = <&TAP_ACT TAP> , <&TAPTAP_ACT TAPTAP>; \
     )
 
-#define MAKE_HRM(                   \
-    NAME ,                          \
-    HOLD , TAP                      \
-    )                               \
-    ZMK_BEHAVIOR(                   \
-        NAME,                       \
-        hold_tap,                   \
-        tapping-term-ms = <TAP_MS>; \
-        bindings = <HOLD>, <TAP>;   \
+#define MAKE_HRM(                         \
+    NAME ,                                \
+    HOLD , TAP                            \
+    )                                     \
+    ZMK_BEHAVIOR(                         \
+        NAME,                             \
+        hold_tap,                         \
+        flavor = "balanced";              \
+        tapping-term-ms = <TAP_MS>;       \
+        quick-tap-ms = <TAP_MS>;          \
+        require-prior-idle-ms = <TAP_MS>; \
+        bindings = <HOLD>, <TAP>;         \
     )
 MAKE_HRM(hold_sk, &sk, &kp)
 MAKE_HRM(hold_sl, &sl, &kp)
