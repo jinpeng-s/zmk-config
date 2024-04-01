@@ -202,10 +202,10 @@ TAP_TAP(lbrc_rbrc   , kp      , LBRC     , kp         , RBRC     ) // {     / }
 // combos
 ////////////////////
 
-ZMK_COMBO(lt_gt        , &lt_gt             , LT3 LT2 , DEF, COMBO_TERM)
-ZMK_COMBO(lpar_rpar    , &lpar_rpar         , LM3 LM2 , DEF, COMBO_TERM)
-ZMK_COMBO(lbkt_rbkt    , &lbkt_rbkt         , RT2 RT3 , DEF, COMBO_TERM)
-ZMK_COMBO(lbrc_rbrc    , &lbrc_rbrc         , RM2 RM3 , DEF, COMBO_TERM)
+ZMK_COMBO(lt_gt        , &lt_gt             , LT3 LT2 , NUM , COMBO_TERM)
+ZMK_COMBO(lpar_rpar    , &lpar_rpar         , LM3 LM2 , NUM , COMBO_TERM)
+ZMK_COMBO(lbkt_rbkt    , &lbkt_rbkt         , RT2 RT3 , NUM , COMBO_TERM)
+ZMK_COMBO(lbrc_rbrc    , &lbrc_rbrc         , RM2 RM3 , NUM , COMBO_TERM)
 
 //////////
 
