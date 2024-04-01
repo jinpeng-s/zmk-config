@@ -52,7 +52,7 @@
     ZMK_BEHAVIOR(                                         \
         NAME,                                             \
         tap_dance,                                        \
-        tapping-term-ms = <SHORT_TAP_MS>;                 \
+        tapping-term-ms = <TAP_MS>;                       \
         bindings = <&TAP_ACT TAP> , <&TAPTAP_ACT TAPTAP>; \
     )
 
