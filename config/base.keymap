@@ -139,7 +139,7 @@ ZMK_COMBO(0           , &kp 0               , RT2 RM2 , DEF , COMBO_TERM)
 ZMK_COMBO(0           , &kp 0               , RT3 RM3 , DEF , COMBO_TERM)
 
 ZMK_COMBO(0           , &kp 0               , LM1 LB1 , DEF , COMBO_TERM)
-ZMK_COMBO(0           , &kp 0               , RM1 RB1 , DEF , COMBO_TERM)
+ZMK_COMBO(b           , &kp B               , RM1 RB1 , DEF , COMBO_TERM)
 
 ZMK_COMBO(0           , &kp 0               , LH2 LH1 , DEF , COMBO_TERM)
 ZMK_COMBO(0           , &kp 0               , RH1 RH2 , DEF , COMBO_TERM)
@@ -156,7 +156,7 @@ ZMK_LAYER(DEF,
    xxx               &hold_sk LGUI A   &hold_sk LALT S   &hold_sk LCTRL D  &hold_sk LSHFT F  &kp G                                           xxx               &hold_sk LSHFT T  &hold_sk LCTRL K  &hold_sk LALT L   &hold_sk LGUI J   xxx
 //                                                   TAB                                                                                                                                      Return
 //├─────────────┤   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┴─────────────┴───┴─────────────┴───┴─────────────╯   ├─────────────┤
-//                                                                              _x_                                                                                 _x_
+//                                                                              _x_                                                                                  B
 //├─────────────┼───┬─────────────┬───┬─────────────┬───┬─────────────╮   ├─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┤   ╭─────────────┬───┬─────────────┬───┬─────────────┬───┼─────────────┤
    xxx               &kp Z             &kp X             xxx               &kp V             &kp B                                           xxx               &kp H             xxx               xxx               xxx               xxx
 //╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯   ╰─────────────╯   ╰─────────────╯                                 ╰─────────────╯   ╰─────────────╯   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┴─────────────╯
