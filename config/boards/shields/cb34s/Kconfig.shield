@@ -1,0 +1,7 @@
+# The Kconfig.shield file defines any additional Kconfig settings that may be
+# relevant when using this keyboard.
+# For most keyboards, there is just one additional configuration value for the
+# shield itself.
+
+config SHIELD_CB34S
+    def_bool $(shields_list_contains,cb34s)

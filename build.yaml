@@ -3,3 +3,5 @@ include:
     shield: chipper42_left
   - board: seeeduino_xiao_ble
     shield: chipper42_right
+  - board: nice_nano_v2
+    shield: cb34s
