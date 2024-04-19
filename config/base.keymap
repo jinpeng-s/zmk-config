@@ -28,9 +28,14 @@
 // Global Behavior
 //////////////////////////////
 
-#define ___          &trans
+// unused
 #define _x_          &none
+// abandoned
 #define xxx          &none
+// DO NOT HAVE
+#define DNH          &none
+
+#define ___          &trans
 #define TAP_MS       200
 #define SHORT_TAP_MS 165
 
