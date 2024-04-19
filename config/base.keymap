@@ -12,7 +12,7 @@
   │ xxx LT3 LT2 xxx xxx │         │ xxx xxx RT2 RT3 xxx │
   │ LM4 LM3 LM2 LM1 xxx │         │ xxx RM1 RM2 RM3 RM4 │
   │ xxx xxx xxx LB1 xxx ╰───╮ ╭───╯ xxx RB1 xxx xxx xxx │
-  ╰───────────╮ LH2 LH1 xxx │ │ xxx RH1 RH2 ╭───────────╯
+  ╰───────────╮ LH1 LH0 xxx │ │ xxx RH0 RH1 ╭───────────╯
               ╰─────────────╯ ╰─────────────╯          */
 
 // NOTE:
@@ -141,8 +141,8 @@ ZMK_COMBO(0           , &kp 0               , RT3 RM3 , DEF , COMBO_TERM)
 ZMK_COMBO(0           , &kp 0               , LM1 LB1 , DEF , COMBO_TERM)
 ZMK_COMBO(b           , &kp B               , RM1 RB1 , DEF , COMBO_TERM)
 
-ZMK_COMBO(0           , &kp 0               , LH2 LH1 , DEF , COMBO_TERM)
-ZMK_COMBO(0           , &kp 0               , RH1 RH2 , DEF , COMBO_TERM)
+ZMK_COMBO(0           , &kp 0               , LH1 LH0 , DEF , COMBO_TERM)
+ZMK_COMBO(0           , &kp 0               , RH0 RH1 , DEF , COMBO_TERM)
 
 ////////////////////
 
@@ -217,8 +217,8 @@ ZMK_COMBO(amps_pipe    , &amps_pipe         , RT3 RM3 , NUM , COMBO_TERM)
 ZMK_COMBO(hash_prcnt   , &hash_prcnt        , LM1 LB1 , NUM , COMBO_TERM)
 ZMK_COMBO(bslh_at      , &bslh_at           , RM1 RB1 , NUM , COMBO_TERM)
 
-ZMK_COMBO(0            , &kp 0              , LH2 LH1 , NUM , COMBO_TERM)
-ZMK_COMBO(0            , &kp 0              , RH1 RH2 , NUM , COMBO_TERM)
+ZMK_COMBO(0            , &kp 0               , LH1 LH0 , DEF , COMBO_TERM)
+ZMK_COMBO(0            , &kp 0               , RH0 RH1 , DEF , COMBO_TERM)
 
 ////////////////////
 
