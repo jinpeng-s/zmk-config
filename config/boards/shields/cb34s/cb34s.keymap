@@ -9,4 +9,3 @@
 
 /* use 6-column layout*/
 / { chosen { zmk,matrix_transform = &default_transform; }; };
-
