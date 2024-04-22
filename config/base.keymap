@@ -143,7 +143,7 @@ ZMK_COMBO(0           , &kp 0               , LT2 LM2 , DEF , COMBO_TERM)
 ZMK_COMBO(0           , &kp 0               , RT2 RM2 , DEF , COMBO_TERM)
 ZMK_COMBO(0           , &kp 0               , RT3 RM3 , DEF , COMBO_TERM)
 
-ZMK_COMBO(0           , &kp 0               , LM1 LB1 , DEF , COMBO_TERM)
+ZMK_COMBO(g           , &kp G               , LM1 LB1 , DEF , COMBO_TERM)
 ZMK_COMBO(b           , &kp B               , RM1 RB1 , DEF , COMBO_TERM)
 
 ZMK_COMBO(0           , &kp 0               , LH1 LH0 , DEF , COMBO_TERM)
@@ -158,7 +158,7 @@ ZMK_LAYER(DEF,
 //├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤                                 ├─────────────┼───┴─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────┴───┼─────────────┤
 //                                          _x_               _x_                                                                                                                     _x_               _x_
 //├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤                                 ├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤
-   xxx               &hold_sk LGUI A   &hold_sk LALT S   &hold_sk LCTRL D  &hold_sk LSHFT F  &kp G                                           xxx               &hold_sk LSHFT T  &hold_sk LCTRL K  &hold_sk LALT L   &hold_sk LGUI J   xxx
+   xxx               &hold_sk LGUI A   &hold_sk LALT S   &hold_sk LCTRL D  &hold_sk LSHFT F  xxx                                             xxx               &hold_sk LSHFT T  &hold_sk LCTRL K  &hold_sk LALT L   &hold_sk LGUI J   xxx
 //                                                   TAB                                                                                                                                      Return
 //├─────────────┤   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┴─────────────┴───┴─────────────┴───┴─────────────╯   ├─────────────┤
 //                                                                              _x_                                                                                  B
