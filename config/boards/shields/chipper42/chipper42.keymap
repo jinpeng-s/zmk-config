@@ -1,8 +1,11 @@
+#define K42 &none
+#define K34 &none
+#define K28 &none
+#define K22 &none
+#define K18 &none
+
 /* source keypos definitions */
 #include "../../../zmk-nodefree-config/keypos_def/keypos_42keys.h"
-
-/* activate bluetooth */
-#define CONFIG_WIRELESS 1
 
 /* fix urob */
 #undef  LH0
