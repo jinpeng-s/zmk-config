@@ -28,7 +28,7 @@
 //////////////////////////////
 
 #define TAP_MS       200
-#define SHORT_TAP_MS 165
+#define SHORT_TAP_MS 130
 
 &sl {
     release-after-ms = <5000>;
@@ -89,6 +89,37 @@ MAKE_HRM(hold_sk, &sk, &kp)
 // DEF
 //////////////////////////////
 
+//      NAME        , TAP_ACT , TAP      , TAPTAP_ACT , TAPTAP
+TAP_TAP(lt_foo_c    , lt      , FOO C    , kp         , LS(C)    )
+TAP_TAP(lt_bar_n    , lt      , BAR N    , kp         , LS(N)    )
+TAP_TAP(lt_fun_m    , lt      , FUN C    , kp         , LS(M)    )
+TAP_TAP(a           , kp      , A        , kp         , LS(A)    )
+TAP_TAP(b           , kp      , B        , kp         , LS(B)    )
+TAP_TAP(c           , kp      , C        , kp         , LS(C)    )
+TAP_TAP(d           , kp      , D        , kp         , LS(D)    )
+TAP_TAP(e           , kp      , E        , kp         , LS(E)    )
+TAP_TAP(f           , kp      , F        , kp         , LS(F)    )
+TAP_TAP(g           , kp      , G        , kp         , LS(G)    )
+TAP_TAP(h           , kp      , H        , kp         , LS(H)    )
+TAP_TAP(i           , kp      , I        , kp         , LS(I)    )
+TAP_TAP(j           , kp      , J        , kp         , LS(J)    )
+TAP_TAP(k           , kp      , K        , kp         , LS(K)    )
+TAP_TAP(l           , kp      , L        , kp         , LS(L)    )
+TAP_TAP(m           , kp      , M        , kp         , LS(M)    )
+TAP_TAP(n           , kp      , N        , kp         , LS(N)    )
+TAP_TAP(o           , kp      , O        , kp         , LS(O)    )
+TAP_TAP(p           , kp      , P        , kp         , LS(P)    )
+TAP_TAP(q           , kp      , Q        , kp         , LS(Q)    )
+TAP_TAP(r           , kp      , R        , kp         , LS(R)    )
+TAP_TAP(s           , kp      , S        , kp         , LS(S)    )
+TAP_TAP(t           , kp      , T        , kp         , LS(T)    )
+TAP_TAP(u           , kp      , U        , kp         , LS(U)    )
+TAP_TAP(v           , kp      , V        , kp         , LS(V)    )
+TAP_TAP(w           , kp      , W        , kp         , LS(W)    )
+TAP_TAP(x           , kp      , X        , kp         , LS(X)    )
+TAP_TAP(y           , kp      , Y        , kp         , LS(Y)    )
+TAP_TAP(z           , kp      , Z        , kp         , LS(Z)    )
+
 ////////////////////
 // combos
 ////////////////////
@@ -101,34 +132,41 @@ ZMK_COMBO(enter       , &kp ENTER           , RM2 RM3 , DEF, COMBO_TERM)
 //////////
 
 ZMK_COMBO(0           , &kp 0               , LT3 LM3 , DEF , COMBO_TERM)
-ZMK_COMBO(y           , &kp Y               , LT2 LM2 , DEF , COMBO_TERM)
+ZMK_COMBO(yy          , &y                  , LT2 LM2 , DEF , COMBO_TERM)
 ZMK_COMBO(0           , &kp 0               , RT2 RM2 , DEF , COMBO_TERM)
 ZMK_COMBO(0           , &kp 0               , RT3 RM3 , DEF , COMBO_TERM)
 
-ZMK_COMBO(g           , &kp G               , LM1 LB1 , DEF , COMBO_TERM)
-ZMK_COMBO(b           , &kp B               , RM1 RB1 , DEF , COMBO_TERM)
+ZMK_COMBO(gg          , &g                  , LM1 LB1 , DEF , COMBO_TERM)
+ZMK_COMBO(bb          , &b                  , RM1 RB1 , DEF , COMBO_TERM)
 
-ZMK_COMBO(z           , &kp Z               , LH1 LH0 , DEF , COMBO_TERM)
-ZMK_COMBO(x           , &kp X               , RH0 RH1 , DEF , COMBO_TERM)
+ZMK_COMBO(zz          , &z                  , LH1 LH0 , DEF , COMBO_TERM)
+ZMK_COMBO(xx          , &x                  , RH0 RH1 , DEF , COMBO_TERM)
 
-////////////////////
+HOLD_TAP(hold_sk_LGUI_A, &kp, &a)
+HOLD_TAP(hold_sk_LALT_S, &kp, &s)
+HOLD_TAP(hold_sk_LCTRL_D, &kp, &d)
+HOLD_TAP(hold_sk_LSHFT_F, &kp, &f)
+HOLD_TAP(hold_sk_LSHFT_T, &kp, &t)
+HOLD_TAP(hold_sk_LCTRL_K, &kp, &k)
+HOLD_TAP(hold_sk_LALT_L, &kp, &l)
+HOLD_TAP(hold_sk_LGUI_J, &kp, &j)
 
 ZMK_LAYER(DEF,
 //╭─────────────╮   ╭─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────╮   ╭─────────────╮                                 ╭─────────────╮   ╭─────────────╮   ╭─────────────┬───┬─────────────╮   ╭─────────────╮   ╭─────────────╮
-                     &kp Q             &kp W             &kp E             &kp R             K34                                             K34               &kp U             &kp I             &kp O             &kp P                
+                     &q                &w                &e                &r                K34                                             K34               &u                &i                &o                &p                   
 //                                                   Esc                                                                                                                                    Backspace
 //├─────────────┤   ╰─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────╯   ├─────────────┤                                 ├─────────────┤   ╰─────────────╯   ├─────────────┼───┼─────────────┤   ╰─────────────╯   ├─────────────┤
 //                                          CMB                Y                                                                                                                      CMB               CMB
 //├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤                                 ├─────────────┤   ╭─────────────┬───┼─────────────┼───┼─────────────┼───┬─────────────╮   ├─────────────┤
-                     &hold_sk LGUI A   &hold_sk LALT S   &hold_sk LCTRL D  &hold_sk LSHFT F  K34                                             K34               &hold_sk LSHFT T  &hold_sk LCTRL K  &hold_sk LALT L   &hold_sk LGUI J      
+                     &hold_sk_LGUI_A   &hold_sk_LALT_S   &hold_sk_LCTRL_D  &hold_sk_LSHFT_F  K34                                             K34               &hold_sk_LSHFT_T  &hold_sk_LCTRL_K  &hold_sk_LALT_L   &hold_sk_LGUI_J      
 //                                                   TAB                                                                                                                                      Return
 //├─────────────┤   ╰─────────────┴───┴─────────────┴───┴─────────────┴───┼─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┼───┴─────────────┴───┴─────────────┴───┴─────────────╯   ├─────────────┤
 //                                                                              CMB                                                                                  B
 //├─────────────┤   ╭─────────────┬───┬─────────────┬───┬─────────────╮   ├─────────────┤   ├─────────────┤                                 ├─────────────┤   ├─────────────┤   ╭─────────────┬───┬─────────────┬───┬─────────────╮   ├─────────────┤
-                     K28               K28               K28               &kp V             K34                                             K34               &kp H             K28               K28               K28                  
+                     &z                &x                K28               &v                K34                                             K34               &h                K28               K28               K28                  
 //╰─────────────╯   ╰─────────────┴───┴─────────────┴───┴─────────────╯   ╰─────────────╯   ╰─────────────╯                                 ╰─────────────╯   ╰─────────────╯   ╰─────────────┴───┴─────────────┴───┴─────────────╯   ╰─────────────╯
 //                                                                        ╭─────────────┬───┬─────────────╮ ╭─────────────────────────────╮ ╭─────────────┬───┬─────────────╮
-                                                                           &lt NUM SPACE     &lt FOO C                                       &lt BAR N         &lt FUN M
+                                                                           &lt NUM SPACE     &lt_foo_c                                       &lt_bar_n         &lt_fun_m
 //                                                                        ╰─────────────┴───┴─────────────╯ ╰─────────────────────────────╯ ╰─────────────┴───┴─────────────╯
 //                                                                                        Z                                                                 X
 )
