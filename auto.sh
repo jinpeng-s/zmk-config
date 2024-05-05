@@ -19,4 +19,5 @@ copy_and_regex() {
 
 copy_and_regex "chipper42"
 copy_and_regex "cb34s" "K42:   "
+copy_and_regex "jnpng28" "K42:   " "K34:   "
 copy_and_regex "jnpng18" "K42:   " "K34:   " "K28:   " "K22:   "

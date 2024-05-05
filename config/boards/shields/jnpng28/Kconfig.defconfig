@@ -1,0 +1,12 @@
+# The Kconfig.defconfig file is where overrides for various configuration
+# settings that make sense to have different defaults when this shield is used.
+# One main item that usually has a new default value set here is the
+# ZMK_KEYBOARD_NAME value, which controls the display name of the device over
+# USB and BLE.
+
+if SHIELD_JNPNG28
+
+config ZMK_KEYBOARD_NAME
+    default "jnpng28"
+
+endif
